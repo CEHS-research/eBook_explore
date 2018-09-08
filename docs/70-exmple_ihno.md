@@ -29,9 +29,9 @@ library(furniture)       # nice tables of descriptives
  Next, Ihno announced a pop quiz. She handed out a page containing 11 multiple-choice statistics questions on material covered during the preceding two weeks, and asked the students to keep this page face down while taking and recording their  pulse (`hr_pre`) and ﬁlling out a anxiety questionnaire (`anx_pre`). Then Ihno told the students they had 15 minutes to take the fairly difﬁcult quiz. She also told them that the ﬁrst 10 questions were worth 1 point each but that the 11th question was worth 3 points of extra credit. Ihno’s experimental manipulation consisted of varying the difﬁculty of the 11th question. Twenty-ﬁve quizzes were distributed at each level of difﬁculty of the ﬁnal question: easy, moderate, difﬁcult, and impossible to solve (`exp_cond`). After the quizzes were collected, Ihno asked the students to provide heart rate and anxiety data one more time (`hr_post`, `anx_post`). Finally, Ihno explained the experiment, adding that the 11th quiz question would not be scored and that, although the students would get back their quizzes with their score for the ﬁrst 10 items (`statquiz`), that score would not inﬂuence their grade for the statistics course.
  
  
- <div class="rmdlightbulb">
- <p>You can use a file's <strong>link</strong> to read data directly off a website!</p>
- </div>
+<div class="rmdlightbulb">
+<p>You can use a file's <strong>link</strong> to read data directly off a website!</p>
+</div>
 
 
 
