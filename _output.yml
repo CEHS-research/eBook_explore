@@ -1,6 +1,7 @@
 bookdown::gitbook:
   css: style.css
   split_by: chapter
+  df_print: tibble
   config:
     toc:
       collapse: section
