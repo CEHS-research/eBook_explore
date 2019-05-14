@@ -1,0 +1,57 @@
+# Histograms
+
+Using the `ggplot2::geom_histogram()` function
+
+
+```{r, message=FALSE, error=FALSE}
+library(tidyverse)       # super helpful everything, including ggplot
+```
+
+
+
+> Reminder: Steps before the `ggplot()` are combined with pipes `%>%`, whereas layers of the plot are combined with the addition symbol `+`.
+
+
+## Single continuous variable
+
+### Default bins/binwidth
+
+```{r}
+data_ihno %>% 
+  ggplot(aes(phobia)) +
+  geom_histogram()
+```
+
+
+
+
+### Specify number of bins
+
+```{r}
+data_ihno %>% 
+  ggplot(aes(phobia)) +
+  geom_histogram(bins = 6)
+```
+
+
+### Specify bin width
+
+
+```{r}
+data_ihno %>% 
+  ggplot(aes(phobia)) +
+  geom_histogram(binwidth = 1)
+```
+
+## Fill in the color -by- a factor
+
+```{r}
+data_ihno %>% 
+  dplyr::mutate(phobia_cut3 = cut(phobia, 
+                                  breaks = c(0, 2, 4, 10),
+                                  include.lowest = TRUE)) %>% 
+  ggplot(aes(phobia,
+             fill = phobia_cut3)) +
+  geom_histogram(binwidth = 1)
+```
+

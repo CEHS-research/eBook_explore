@@ -1,0 +1,49 @@
+# Frequency Distribution Tables
+
+Using `furniture::tableF()` function
+
+```{r, message=FALSE, error=FALSE}
+library(furniture)       # nice tables of descriptives
+```
+
+
+
+## For a Single Categorical Variable
+
+
+```{r}
+cancer_clean %>% 
+  furniture::tableF(stage)
+```
+
+```{r}
+data_ihno %>% 
+  furniture::tableF(majorF)
+```
+
+
+## For a Single Continuous Variable
+
+
+The table can get very long if there are many different values for a continuous variable.
+
+```{r}
+data_ihno %>% 
+  furniture::tableF(statquiz)
+```
+
+
+You may specify how many values you would like displayed with the `n = #` option.
+
+```{r}
+data_ihno %>% 
+  furniture::tableF(statquiz, n = 6)
+```
+
+## Stratify -by- a categorical factor
+
+```{r}
+data_ihno %>% 
+  dplyr::group_by(genderF) %>% 
+  furniture::tableF(majorF)
+```

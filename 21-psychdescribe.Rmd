@@ -1,0 +1,54 @@
+# Summary Statistics
+
+Using the `psych::describe()` function
+
+
+```{r, message=FALSE, error=FALSE}
+library(psych)           # Lots of good tidbits
+```
+
+
+The `describe()` function from the `psych` package returns an extensive listing of **basic summary statistics** for every variable in a dataset [@R-psych]. 
+
+* `vars` number order of the variables in this table
+* `n` how many non-missing values there are
+* `mean` the average or arithmetic mean
+* `sd` the standard deviation 
+* `median` the 50th percentile or Q2
+* `trimmed` the mean after removing the top and bottom 10% of values
+* `mad` median absolute deviation (from the median) DO NOT WORRY ABOUT!
+* `min` the minimum or lowest value
+* `max` the maximum or highest value
+* `range` full range of values, max - min
+* `skew` skewness (no SE for skewness given)
+* `kurtosis` kurtosis (no SE for kurtosis given)
+* `se` the standard error for the **MEAN**, not the skewness or kurtosis
+
+
+## All Variables in a Dataset
+
+
+```{r}
+cancer_clean %>% 
+  psych::describe()
+```
+
+**NOTE** The names of categorical variables *(factors)* are followed by an **astrics** to indicate that summary statistics should not be evaluated since the variable is not continuous or on an interval scale.
+
+
+## A Subset of Varaibles in a Datasets
+
+It is better to avoid calculating summary statistics for categorical variables in the first place by first restricting the dataset to only continuous variables using a `dplyr::select()` step.
+
+> Make sure to use a `dplyr::select(var1, var2, ..., var12)` step to select only the variables of interest.
+
+```{r}
+cancer_clean %>% 
+  dplyr::select(age, weighin, totalcin, totalcw2, totalcw4, totalcw6) %>%
+  psych::describe()
+```
+
+
+
+
+
