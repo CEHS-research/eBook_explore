@@ -1,0 +1,138 @@
+# Simple and Stratified Descriptive Tables
+
+
+Using the `furniture::table1()` function
+
+```{r, message=FALSE, error=FALSE}
+library(furniture)       # nice tables of descriptives
+```
+
+
+The `table1()` function in the `furniture` package returns a much smaller listing of summary statistics [@R-furniture].
+
+* Categorical Variables: count (percentage) within each category
+* Continuous Variables: mean (standard deviation)
+
+
+
+## For a Single Categorical Variable
+
+```{r}
+data_ihno %>% 
+  furniture::table1(majorF)
+```
+
+## For a Single Continuous Variable
+
+```{r}
+data_ihno %>% 
+  furniture::table1(statquiz)
+```
+
+
+
+## For a Subset of Variables
+
+
+The variables desired can also be listed inside the function *(selarate with commas)*.
+
+
+
+```{r}
+cancer_clean %>% 
+  furniture::table1(age, weighin, stage, totalcin)
+```
+
+
+
+
+```{r}
+data_ihno %>% 
+  furniture::table1(majorF, reasonF, statquiz)
+```
+
+
+## Customize the Variable Labels
+
+```{r}
+cancer_clean %>% 
+  furniture::table1("Age, years"     = age, 
+                    "Weight, pounds" = weighin, 
+                    "Cancer Stage"   = stage, 
+                    "Oral Condition" = totalcin)
+```
+
+
+
+```{r}
+data_ihno %>% 
+  furniture::table1("Reason For Enrolling" = reasonF, 
+                    "Coffee Drinker"       = coffeeF, 
+                    "Math Phobia"          = phobia, 
+                    "Statistics Quiz"      = statquiz, 
+                    "Mathematics Quiz"     = mathquiz) 
+```
+
+
+## Stratify -by- a categorical factor
+
+
+You may use a `dplyr::group_by(grouping_var)` step before the `furniture::table1()` step to create summary statistics for different subgroups. 
+
+
+```{r}
+cancer_clean %>% 
+  dplyr::group_by(trt) %>% 
+  furniture::table1("Age, years"     = age, 
+                    "Weight, pounds" = weighin, 
+                    "Cancer Stage"   = stage, 
+                    "Oral Condition" = totalcin)
+```
+
+
+
+```{r}
+data_ihno %>% 
+  dplyr::group_by(genderF) %>% 
+  furniture::table1("College Major" = majorF, 
+                    "Reason Enrolled" = reasonF,
+                    "Statistics Quiz" = statquiz)
+```
+
+
+
+```{r}
+data_ihno %>% 
+  dplyr::mutate(phobia_cut3 = cut(phobia, 
+                                  breaks = c(0, 2, 4, 10),
+                                  include.lowest = TRUE)) %>% 
+  dplyr::group_by(phobia_cut3) %>% 
+  furniture::table1("College Major" = majorF, 
+                    "Reason Enrolled" = reasonF,
+                    "Statistics Quiz" = statquiz)
+```
+
+
+
+
+## Add a TOTAL Column
+
+```{r}
+cancer_clean %>% 
+  dplyr::group_by(trt) %>% 
+  furniture::table1("Age, years"     = age, 
+                    "Weight, pounds" = weighin, 
+                    "Cancer Stage"   = stage, 
+                    "Oral Condition" = totalcin,
+                    total = TRUE)
+```
+
+```{r}
+data_ihno %>% 
+  dplyr::group_by(genderF) %>% 
+  furniture::table1("College Major" = majorF, 
+                    "Reason Enrolled" = reasonF,
+                    "Statistics Quiz" = statquiz,
+                    total = TRUE)
+```
+

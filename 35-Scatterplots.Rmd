@@ -1,0 +1,48 @@
+# Scatterplots 
+
+
+Using the `ggplot2::geom_point()` function
+
+```{r, message=FALSE, error=FALSE}
+library(tidyverse)       # super helpful everything, including ggplot
+```
+
+
+## Two continuous variables
+
+```{r}
+data_ihno %>% 
+  ggplot() +
+  aes(x = mathquiz,
+      y = statquiz) +
+  geom_point()
+```
+
+```{r}
+data_ihno %>% 
+  dplyr::mutate(phobia_cut3 = cut(phobia, 
+                                  breaks = c(0, 2, 4, 10),
+                                  include.lowest = TRUE)) %>% 
+  ggplot() +
+  aes(x = mathquiz,
+      y = statquiz,
+      color = phobia_cut3) +
+  geom_point()
+```
+
+
+```{r}
+data_ihno %>% 
+  dplyr::mutate(phobia_cut3 = cut(phobia, 
+                                  breaks = c(0, 2, 4, 10),
+                                  include.lowest = TRUE)) %>% 
+  ggplot() +
+  aes(x = mathquiz,
+      y = statquiz) +
+  geom_count() +
+  facet_grid(. ~ phobia_cut3)
+```
+
+
+
+

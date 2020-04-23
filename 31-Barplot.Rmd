@@ -1,0 +1,22 @@
+# Barplots
+
+Using the `ggplot2::geom_bar()` function
+
+```{r, message=FALSE, error=FALSE}
+library(tidyverse)       # super helpful everything, including ggplot
+```
+
+
+
+> Reminder: Steps before the `ggplot()` are combined with pipes `%>%`, whereas layers of the plot are combined with the addition symbol `+`.
+
+
+## Single categorical variable
+
+### Default bins/binwidth
+
+```{r}
+data_ihno %>% 
+  ggplot(aes(majorF)) +
+  geom_bar()
+```
