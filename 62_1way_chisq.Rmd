@@ -1,0 +1,237 @@
+# 1-way Chi Square Test, "Goodness of Fit"
+
+
+```{r}
+library(tidyverse)
+library(effectsize)
+library(pander)
+```
+
+The `chisq.test()` function in the base R `stats` package can be used to perform a **Goodnes-of-Fit** or one-way Chi-Squared test.  This assesses if the observed counts are significantly different from a given profile. The comparison or expected counts may be based on all levels being **equally likely** or **any other specification**.
+
+
+**Steps:**
+1. Enter the data as a 'concatinated vector' and change it to the class 'table'
+2. Perform the test, saving the model fit
+3. Extract the observed and expected counts
+4. Extract the test output
+5. Write up the methods & results
+
+-------
+
+## Null Hypothesis: Equally Likely
+
+Frequently we will to test if there is any difference between the counts in groups.  This omnibus test compares the counts in each group to the uniform distribution.  This means the expected count in all groups is the same.  The expected counts may be found by dividing the total sample by the number of groups.
+
+
+### Ex. Books
+
+**Question:**
+
+Is there a difference in number of books checked out for different days of the week?
+
+#### Enter observed counts
+
+This example is given in the Barry Cohen textbook.  The library counts the number of books checked out each day for a week.  The counts are entered below.
+
+```{r}
+my_book_counts <- c(Monday    = 20,
+                    Tuesday   = 14,
+                    Wednesday = 18,
+                    Thursday  = 17,
+                    Friday    = 22,
+                    Saturday  = 29) %>% 
+  as.table()
+
+my_book_counts
+```
+
+
+#### Perform the test, saving the model fit
+
+> **NOTE:** You do not need to declare any options inside the `chisq.test()` function, as the default is to use equally likely probabilities.
+
+```{r}
+fit_book_chisq_el <- my_book_counts %>% 
+  chisq.test()
+```
+
+
+#### Extract the observed and expected counts
+
+You can ask for the observed counts.  These are just the data your entered into the test.
+
+> **NOTE:** The observed counts MUST be whole numbers!
+
+```{r}
+fit_book_chisq_el$observed
+```
+
+You can also ask for the expected counts.  The default is for each group to have the total sample divided equally.
+
+> **NOTE:** The expected counts CAN be decimal values.
+
+```{r}
+fit_book_chisq_el$expected
+```
+
+You can use the code below to create a single table with both the observed and expected counts, as well as the total for each.
+
+```{r}
+rbind(Observed = fit_book_chisq_el$observed,
+      Expected = fit_book_chisq_el$expected,
+      Residual = fit_book_chisq_el$observed - fit_book_chisq_el$expected) %>% 
+  as.table() %>% 
+  addmargins(margin = 2) %>% 
+  pander::pander()
+```
+
+
+#### Extract the test output
+
+```{r}
+fit_book_chisq_el
+```
+
+#### Write-up
+
+**Methods**
+
+To assess if books are checked out uniformly throughout the week, a 1-way Chi Squared Goodness of Fit test was conducted.  
+
+**Results**
+
+This one week provides no evidence that books are checked out more or less on any given day, $\chi^2 (5) = 6.70$, $p = .244$.  
+
+
+
+### Ex. M & M Colors
+
+#### Enter observed counts
+
+```{r}
+my_color_counts <- c(brown  = 4,
+                     yellow = 2,
+                     red    = 10,
+                     green  = 23,
+                     blue   = 14,
+                     orange = 12) %>% 
+  as.table()
+
+my_color_counts
+```
+
+#### Perform the test, saving the model fit
+
+> **NOTE:** You do not need to declare any options inside the `chisq.test()` function, as the default is to use equally likely probabilities.
+
+```{r}
+fit_chisq_el <- my_color_counts %>% 
+  chisq.test()
+```
+
+
+#### Extract the observed and expected counts
+
+You can ask for the observed counts.  These are just the data your entered into the test.
+
+> **NOTE:** The observed counts MUST be whole numbers!
+
+```{r}
+fit_chisq_el$observed
+```
+
+You can also ask for the expected counts.  The default is for each group to have the total sample divided equally.
+
+> **NOTE:** The expected counts CAN be decimal values.
+
+```{r}
+fit_chisq_el$expected
+```
+
+You can use the code below to create a single table with both the observed and expected counts, as well as the total for each.
+
+```{r}
+rbind(Observed = fit_chisq_el$observed,
+      Expected = fit_chisq_el$expected,
+      Residual = fit_chisq_el$observed - fit_chisq_el$expected) %>% 
+  as.table() %>% 
+  addmargins(margin = 2) %>% 
+  pander::pander()
+```
+
+
+#### Extract the test output
+
+```{r}
+fit_chisq_el
+```
+
+#### Write-up
+
+**Methods**
+
+To assess if my bag of M & M's supports the hypothesis that all colors are equally produced, a 1-way Chi Squared Goodness of Fit test was conducted.  
+
+**Results**
+
+Statistically significant evidence was found that **not all the colors are equally** produced, $\chi^2 (5) = 26.29$, $p < .001$.  There were fewer brown and yellow, as well as more green, than would be expected.
+
+
+## Null Hypothesis: a Specific Distribution
+
+
+
+### Ex. M & M Colors
+
+Years ago, the Mars company used to post the 'color breakdown' for each type of M & M it produced on its website.  The information has since been removed, but the last time I checked it claim that plain, milk chocolate M & M's consisted of:
+
+* 13% brown
+* 14% yellow
+* 13% red
+* 16% green
+* 24% blue
+* 20% orange
+
+#### Perform the test, saving the model fit
+
+> **NOTE:** You DO need to declare any options inside the `chisq.test()` function, as the default is to use equally likely probabilities.
+
+To compare observed counts to a specified distribution, you need to add that breakdown of 100% (or probability of 1.0) inside the `chisq.test()`.  Make sure that your probabilities add up to EXACTLY ONE!  If ther are off by even .00001, it will not run and give and error instead.
+
+```{r}
+fit_chisq_hist <- my_color_counts %>% 
+  chisq.test(p = c(.13, .14, .13, .16, .24, .20))
+```
+
+
+#### Extract the observed and expected counts
+
+You can use the code below to create a single table with both the observed and expected counts, as well as the total for each.
+
+```{r}
+rbind(Observed = fit_chisq_hist$observed,
+      Expected = fit_chisq_hist$expected,
+      Residual = fit_chisq_hist$observed - fit_chisq_hist$expected) %>% 
+  as.table() %>% 
+  addmargins(margin = 2) %>% 
+  pander::pander()
+```
+
+
+#### Extract the test output
+
+```{r}
+fit_chisq_hist
+```
+
+#### Write-up
+
+**Methods**
+
+To assess if my bag of M & M's supports the reported color breakdown that used to be listed on teh Mars website, a 1-way Chi Squared Goodness of Fit test was conducted.  
+
+**Results**
+
+Statistically significant evidence was found that the c**olor breakdown has changed** since the website posting, $\chi^2 (5) = 23.67$, $p < .001$.  There were fewer brown and yellow, as well as more green, than would be expected if it were still the same.
+
