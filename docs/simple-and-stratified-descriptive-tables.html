@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>5 Simple and Stratified Descriptive Tables | Encyclopedia of Quantitative Methods in R, vol. 1: Data Wrangling</title>
-  <meta name="description" content="Data Management: Importing, Subsetting, Creating Variables, and Saving.">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="Data Management: Importing, Subsetting, Creating Variables, and Saving." />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
   <meta property="og:title" content="5 Simple and Stratified Descriptive Tables | Encyclopedia of Quantitative Methods in R, vol. 1: Data Wrangling" />
   <meta property="og:type" content="book" />
@@ -22,17 +21,17 @@
   <meta name="twitter:description" content="Data Management: Importing, Subsetting, Creating Variables, and Saving." />
   <meta name="twitter:image" content="EQM_v1_cover.png" />
 
-<meta name="author" content="Sarah Schwartz &amp; Tyson Barrett">
+<meta name="author" content="Sarah Schwartz &amp; Tyson Barrett" />
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="frequency-distribution-tables.html">
-<link rel="next" href="barplots.html">
+<link rel="prev" href="frequency-distribution-tables.html"/>
+<link rel="next" href="barplots.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -40,6 +39,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -56,7 +58,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -205,6 +206,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9" data-path="scatterplots.html"><a href="scatterplots.html"><i class="fa fa-check"></i><b>9</b> Scatterplots</a><ul>
 <li class="chapter" data-level="9.1" data-path="scatterplots.html"><a href="scatterplots.html#two-continuous-variables"><i class="fa fa-check"></i><b>9.1</b> Two continuous variables</a></li>
 </ul></li>
+<li class="chapter" data-level="10" data-path="binomial-sign-test.html"><a href="binomial-sign-test.html"><i class="fa fa-check"></i><b>10</b> Binomial Sign Test</a><ul>
+<li class="chapter" data-level="10.1" data-path="binomial-sign-test.html"><a href="binomial-sign-test.html#the-binomial-distribution"><i class="fa fa-check"></i><b>10.1</b> The Binomial Distribution</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="binomial-sign-test.html"><a href="binomial-sign-test.html#effect-of-hypothesised-p-value"><i class="fa fa-check"></i><b>10.1.1</b> Effect of Hypothesised “P” Value</a></li>
+<li class="chapter" data-level="10.1.2" data-path="binomial-sign-test.html"><a href="binomial-sign-test.html#effect-of-sample-size"><i class="fa fa-check"></i><b>10.1.2</b> Effect of Sample Size</a></li>
+<li class="chapter" data-level="10.1.3" data-path="binomial-sign-test.html"><a href="binomial-sign-test.html#probability-of-4-or-more-out-of-5"><i class="fa fa-check"></i><b>10.1.3</b> Probability of 4 <em>(or more)</em> out of 5</a></li>
+<li class="chapter" data-level="10.1.4" data-path="binomial-sign-test.html"><a href="binomial-sign-test.html#probability-of-8-or-more-out-of-10"><i class="fa fa-check"></i><b>10.1.4</b> Probability of 8 <em>(or more)</em> out of 10</a></li>
+<li class="chapter" data-level="10.1.5" data-path="binomial-sign-test.html"><a href="binomial-sign-test.html#probability-of-80-or-more-out-of-100"><i class="fa fa-check"></i><b>10.1.5</b> Probability of 80 <em>(or more)</em> out of 100</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="binomial-sign-test.html"><a href="binomial-sign-test.html#example-fair-coin"><i class="fa fa-check"></i><b>10.2</b> Example: Fair Coin?</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="binomial-sign-test.html"><a href="binomial-sign-test.html#enter-tabulated-data-subtotals"><i class="fa fa-check"></i><b>10.2.1</b> Enter tabulated data (subtotals)</a></li>
+<li class="chapter" data-level="10.2.2" data-path="binomial-sign-test.html"><a href="binomial-sign-test.html#two-sided-test"><i class="fa fa-check"></i><b>10.2.2</b> Two-sided Test</a></li>
+<li class="chapter" data-level="10.2.3" data-path="binomial-sign-test.html"><a href="binomial-sign-test.html#one-sided-test"><i class="fa fa-check"></i><b>10.2.3</b> One-sided Test</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="way-chi-square-test-goodness-of-fit.html"><a href="way-chi-square-test-goodness-of-fit.html"><i class="fa fa-check"></i><b>11</b> 1-way Chi Square Test, “Goodness of Fit”</a><ul>
+<li class="chapter" data-level="11.1" data-path="way-chi-square-test-goodness-of-fit.html"><a href="way-chi-square-test-goodness-of-fit.html#chi-squared-distribution"><i class="fa fa-check"></i><b>11.1</b> Chi Squared Distribution</a></li>
+<li class="chapter" data-level="11.2" data-path="way-chi-square-test-goodness-of-fit.html"><a href="way-chi-square-test-goodness-of-fit.html#chi-squared-test"><i class="fa fa-check"></i><b>11.2</b> Chi Squared Test</a></li>
+<li class="chapter" data-level="11.3" data-path="way-chi-square-test-goodness-of-fit.html"><a href="way-chi-square-test-goodness-of-fit.html#null-hypothesis-equally-likely"><i class="fa fa-check"></i><b>11.3</b> Null Hypothesis: Equally Likely</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="way-chi-square-test-goodness-of-fit.html"><a href="way-chi-square-test-goodness-of-fit.html#ex.-senator-support"><i class="fa fa-check"></i><b>11.3.1</b> Ex. Senator Support</a></li>
+<li class="chapter" data-level="11.3.2" data-path="way-chi-square-test-goodness-of-fit.html"><a href="way-chi-square-test-goodness-of-fit.html#ex.-books"><i class="fa fa-check"></i><b>11.3.2</b> Ex. Books</a></li>
+<li class="chapter" data-level="11.3.3" data-path="way-chi-square-test-goodness-of-fit.html"><a href="way-chi-square-test-goodness-of-fit.html#ex.-m-m-colors"><i class="fa fa-check"></i><b>11.3.3</b> Ex. M &amp; M Colors</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="way-chi-square-test-goodness-of-fit.html"><a href="way-chi-square-test-goodness-of-fit.html#null-hypothesis-a-specific-distribution"><i class="fa fa-check"></i><b>11.4</b> Null Hypothesis: a Specific Distribution</a><ul>
+<li class="chapter" data-level="11.4.1" data-path="way-chi-square-test-goodness-of-fit.html"><a href="way-chi-square-test-goodness-of-fit.html#ex.-m-m-colors-1"><i class="fa fa-check"></i><b>11.4.1</b> Ex. M &amp; M Colors</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="way-chi-square-test-independence.html"><a href="way-chi-square-test-independence.html"><i class="fa fa-check"></i><b>12</b> 2-way Chi Square Test “Independence”</a><ul>
+<li class="chapter" data-level="12.1" data-path="way-chi-square-test-independence.html"><a href="way-chi-square-test-independence.html#example-violent-crime-and-abuse-2x2"><i class="fa fa-check"></i><b>12.1</b> Example: Violent Crime and Abuse (2x2)</a></li>
+<li class="chapter" data-level="12.2" data-path="way-chi-square-test-independence.html"><a href="way-chi-square-test-independence.html#example-schizophrenic-treatment-cohen-textbook"><i class="fa fa-check"></i><b>12.2</b> Example: Schizophrenic Treatment (Cohen textbook)</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -229,16 +260,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="simple-and-stratified-descriptive-tables" class="section level1">
 <h1><span class="header-section-number">5</span> Simple and Stratified Descriptive Tables</h1>
 <p>Using the <code>furniture::table1()</code> function</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(furniture)       <span class="co"># nice tables of descriptives</span></code></pre>
-<p>The <code>table1()</code> function in the <code>furniture</code> package returns a much smaller listing of summary statistics <span class="citation">(Barrett, Brignone, and Laxman <a href="references.html#ref-R-furniture">2019</a>)</span>.</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" title="1"><span class="kw">library</span>(furniture)       <span class="co"># nice tables of descriptives</span></a></code></pre></div>
+<p>The <code>table1()</code> function in the <code>furniture</code> package returns a much smaller listing of summary statistics <span class="citation">(Barrett, Brignone, and Laxman <a href="references.html#ref-R-furniture" role="doc-biblioref">2020</a>)</span>.</p>
 <ul>
 <li>Categorical Variables: count (percentage) within each category</li>
 <li>Continuous Variables: mean (standard deviation)</li>
 </ul>
 <div id="for-a-single-categorical-variable-1" class="section level2">
 <h2><span class="header-section-number">5.1</span> For a Single Categorical Variable</h2>
-<pre class="sourceCode r"><code class="sourceCode r">data_ihno <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span>furniture<span class="op">::</span><span class="kw">table1</span>(majorF)</code></pre>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" title="1">data_ihno <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb33-2" title="2"><span class="st">  </span>furniture<span class="op">::</span><span class="kw">table1</span>(majorF)</a></code></pre></div>
 <pre><code>
 ---------------------------------
                Mean/Count (SD/%)
@@ -253,8 +284,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="for-a-single-continuous-variable-1" class="section level2">
 <h2><span class="header-section-number">5.2</span> For a Single Continuous Variable</h2>
-<pre class="sourceCode r"><code class="sourceCode r">data_ihno <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span>furniture<span class="op">::</span><span class="kw">table1</span>(statquiz)</code></pre>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" title="1">data_ihno <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb35-2" title="2"><span class="st">  </span>furniture<span class="op">::</span><span class="kw">table1</span>(statquiz)</a></code></pre></div>
 <pre><code>
 ----------------------------
           Mean/Count (SD/%)
@@ -266,8 +297,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="for-a-subset-of-variables" class="section level2">
 <h2><span class="header-section-number">5.3</span> For a Subset of Variables</h2>
 <p>The variables desired can also be listed inside the function <em>(selarate with commas)</em>.</p>
-<pre class="sourceCode r"><code class="sourceCode r">cancer_clean <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span>furniture<span class="op">::</span><span class="kw">table1</span>(age, weighin, stage, totalcin)</code></pre>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" title="1">cancer_clean <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb37-2" title="2"><span class="st">  </span>furniture<span class="op">::</span><span class="kw">table1</span>(age, weighin, stage, totalcin)</a></code></pre></div>
 <pre><code>
 ----------------------------
           Mean/Count (SD/%)
@@ -285,8 +316,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  totalcin                  
           6.5 (1.5)        
 ----------------------------</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">data_ihno <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span>furniture<span class="op">::</span><span class="kw">table1</span>(majorF, reasonF, statquiz)</code></pre>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" title="1">data_ihno <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb39-2" title="2"><span class="st">  </span>furniture<span class="op">::</span><span class="kw">table1</span>(majorF, reasonF, statquiz)</a></code></pre></div>
 <pre><code>
 ---------------------------------------------
                            Mean/Count (SD/%)
@@ -307,11 +338,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="customize-the-variable-labels" class="section level2">
 <h2><span class="header-section-number">5.4</span> Customize the Variable Labels</h2>
-<pre class="sourceCode r"><code class="sourceCode r">cancer_clean <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span>furniture<span class="op">::</span><span class="kw">table1</span>(<span class="st">&quot;Age, years&quot;</span>     =<span class="st"> </span>age, 
-                    <span class="st">&quot;Weight, pounds&quot;</span> =<span class="st"> </span>weighin, 
-                    <span class="st">&quot;Cancer Stage&quot;</span>   =<span class="st"> </span>stage, 
-                    <span class="st">&quot;Oral Condition&quot;</span> =<span class="st"> </span>totalcin)</code></pre>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" title="1">cancer_clean <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb41-2" title="2"><span class="st">  </span>furniture<span class="op">::</span><span class="kw">table1</span>(<span class="st">&quot;Age, years&quot;</span>     =<span class="st"> </span>age, </a>
+<a class="sourceLine" id="cb41-3" title="3">                    <span class="st">&quot;Weight, pounds&quot;</span> =<span class="st"> </span>weighin, </a>
+<a class="sourceLine" id="cb41-4" title="4">                    <span class="st">&quot;Cancer Stage&quot;</span>   =<span class="st"> </span>stage, </a>
+<a class="sourceLine" id="cb41-5" title="5">                    <span class="st">&quot;Oral Condition&quot;</span> =<span class="st"> </span>totalcin)</a></code></pre></div>
 <pre><code>
 ----------------------------------
                 Mean/Count (SD/%)
@@ -329,12 +360,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  Oral Condition                  
                 6.5 (1.5)        
 ----------------------------------</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">data_ihno <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span>furniture<span class="op">::</span><span class="kw">table1</span>(<span class="st">&quot;Reason For Enrolling&quot;</span> =<span class="st"> </span>reasonF, 
-                    <span class="st">&quot;Coffee Drinker&quot;</span>       =<span class="st"> </span>coffeeF, 
-                    <span class="st">&quot;Math Phobia&quot;</span>          =<span class="st"> </span>phobia, 
-                    <span class="st">&quot;Statistics Quiz&quot;</span>      =<span class="st"> </span>statquiz, 
-                    <span class="st">&quot;Mathematics Quiz&quot;</span>     =<span class="st"> </span>mathquiz) </code></pre>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" title="1">data_ihno <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb43-2" title="2"><span class="st">  </span>furniture<span class="op">::</span><span class="kw">table1</span>(<span class="st">&quot;Reason For Enrolling&quot;</span> =<span class="st"> </span>reasonF, </a>
+<a class="sourceLine" id="cb43-3" title="3">                    <span class="st">&quot;Coffee Drinker&quot;</span>       =<span class="st"> </span>coffeeF, </a>
+<a class="sourceLine" id="cb43-4" title="4">                    <span class="st">&quot;Math Phobia&quot;</span>          =<span class="st"> </span>phobia, </a>
+<a class="sourceLine" id="cb43-5" title="5">                    <span class="st">&quot;Statistics Quiz&quot;</span>      =<span class="st"> </span>statquiz, </a>
+<a class="sourceLine" id="cb43-6" title="6">                    <span class="st">&quot;Mathematics Quiz&quot;</span>     =<span class="st"> </span>mathquiz) </a></code></pre></div>
 <pre><code>
 ---------------------------------------------------
                                  Mean/Count (SD/%)
@@ -357,12 +388,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="stratify--by--a-categorical-factor-1" class="section level2">
 <h2><span class="header-section-number">5.5</span> Stratify -by- a categorical factor</h2>
 <p>You may use a <code>dplyr::group_by(grouping_var)</code> step before the <code>furniture::table1()</code> step to create summary statistics for different subgroups.</p>
-<pre class="sourceCode r"><code class="sourceCode r">cancer_clean <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">group_by</span>(trt) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span>furniture<span class="op">::</span><span class="kw">table1</span>(<span class="st">&quot;Age, years&quot;</span>     =<span class="st"> </span>age, 
-                    <span class="st">&quot;Weight, pounds&quot;</span> =<span class="st"> </span>weighin, 
-                    <span class="st">&quot;Cancer Stage&quot;</span>   =<span class="st"> </span>stage, 
-                    <span class="st">&quot;Oral Condition&quot;</span> =<span class="st"> </span>totalcin)</code></pre>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb45-1" title="1">cancer_clean <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb45-2" title="2"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">group_by</span>(trt) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb45-3" title="3"><span class="st">  </span>furniture<span class="op">::</span><span class="kw">table1</span>(<span class="st">&quot;Age, years&quot;</span>     =<span class="st"> </span>age, </a>
+<a class="sourceLine" id="cb45-4" title="4">                    <span class="st">&quot;Weight, pounds&quot;</span> =<span class="st"> </span>weighin, </a>
+<a class="sourceLine" id="cb45-5" title="5">                    <span class="st">&quot;Cancer Stage&quot;</span>   =<span class="st"> </span>stage, </a>
+<a class="sourceLine" id="cb45-6" title="6">                    <span class="st">&quot;Oral Condition&quot;</span> =<span class="st"> </span>totalcin)</a></code></pre></div>
 <pre><code>
 ------------------------------------------
                          trt 
@@ -381,11 +412,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  Oral Condition                          
                 6.6 (0.9)    6.5 (2.1)   
 ------------------------------------------</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">data_ihno <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">group_by</span>(genderF) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span>furniture<span class="op">::</span><span class="kw">table1</span>(<span class="st">&quot;College Major&quot;</span> =<span class="st"> </span>majorF, 
-                    <span class="st">&quot;Reason Enrolled&quot;</span> =<span class="st"> </span>reasonF,
-                    <span class="st">&quot;Statistics Quiz&quot;</span> =<span class="st"> </span>statquiz)</code></pre>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb47-1" title="1">data_ihno <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb47-2" title="2"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">group_by</span>(genderF) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb47-3" title="3"><span class="st">  </span>furniture<span class="op">::</span><span class="kw">table1</span>(<span class="st">&quot;College Major&quot;</span> =<span class="st"> </span>majorF, </a>
+<a class="sourceLine" id="cb47-4" title="4">                    <span class="st">&quot;Reason Enrolled&quot;</span> =<span class="st"> </span>reasonF,</a>
+<a class="sourceLine" id="cb47-5" title="5">                    <span class="st">&quot;Statistics Quiz&quot;</span> =<span class="st"> </span>statquiz)</a></code></pre></div>
 <pre><code>
 -------------------------------------------------
                                 genderF 
@@ -404,14 +435,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  Statistics Quiz                                
                            6.8 (1.7)  6.9 (1.7) 
 -------------------------------------------------</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">data_ihno <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">phobia_cut3 =</span> <span class="kw">cut</span>(phobia, 
-                                  <span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">10</span>),
-                                  <span class="dt">include.lowest =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">group_by</span>(phobia_cut3) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span>furniture<span class="op">::</span><span class="kw">table1</span>(<span class="st">&quot;College Major&quot;</span> =<span class="st"> </span>majorF, 
-                    <span class="st">&quot;Reason Enrolled&quot;</span> =<span class="st"> </span>reasonF,
-                    <span class="st">&quot;Statistics Quiz&quot;</span> =<span class="st"> </span>statquiz)</code></pre>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" title="1">data_ihno <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb49-2" title="2"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">phobia_cut3 =</span> <span class="kw">cut</span>(phobia, </a>
+<a class="sourceLine" id="cb49-3" title="3">                                  <span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">10</span>),</a>
+<a class="sourceLine" id="cb49-4" title="4">                                  <span class="dt">include.lowest =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb49-5" title="5"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">group_by</span>(phobia_cut3) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb49-6" title="6"><span class="st">  </span>furniture<span class="op">::</span><span class="kw">table1</span>(<span class="st">&quot;College Major&quot;</span> =<span class="st"> </span>majorF, </a>
+<a class="sourceLine" id="cb49-7" title="7">                    <span class="st">&quot;Reason Enrolled&quot;</span> =<span class="st"> </span>reasonF,</a>
+<a class="sourceLine" id="cb49-8" title="8">                    <span class="st">&quot;Statistics Quiz&quot;</span> =<span class="st"> </span>statquiz)</a></code></pre></div>
 <pre><code>
 ------------------------------------------------------------
                                     phobia_cut3 
@@ -433,13 +464,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="add-a-total-column" class="section level2">
 <h2><span class="header-section-number">5.6</span> Add a TOTAL Column</h2>
-<pre class="sourceCode r"><code class="sourceCode r">cancer_clean <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">group_by</span>(trt) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span>furniture<span class="op">::</span><span class="kw">table1</span>(<span class="st">&quot;Age, years&quot;</span>     =<span class="st"> </span>age, 
-                    <span class="st">&quot;Weight, pounds&quot;</span> =<span class="st"> </span>weighin, 
-                    <span class="st">&quot;Cancer Stage&quot;</span>   =<span class="st"> </span>stage, 
-                    <span class="st">&quot;Oral Condition&quot;</span> =<span class="st"> </span>totalcin,
-                    <span class="dt">total =</span> <span class="ot">TRUE</span>)</code></pre>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb51-1" title="1">cancer_clean <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb51-2" title="2"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">group_by</span>(trt) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb51-3" title="3"><span class="st">  </span>furniture<span class="op">::</span><span class="kw">table1</span>(<span class="st">&quot;Age, years&quot;</span>     =<span class="st"> </span>age, </a>
+<a class="sourceLine" id="cb51-4" title="4">                    <span class="st">&quot;Weight, pounds&quot;</span> =<span class="st"> </span>weighin, </a>
+<a class="sourceLine" id="cb51-5" title="5">                    <span class="st">&quot;Cancer Stage&quot;</span>   =<span class="st"> </span>stage, </a>
+<a class="sourceLine" id="cb51-6" title="6">                    <span class="st">&quot;Oral Condition&quot;</span> =<span class="st"> </span>totalcin,</a>
+<a class="sourceLine" id="cb51-7" title="7">                    <span class="dt">total =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code>
 -------------------------------------------------------
                                      trt 
@@ -458,12 +489,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  Oral Condition                                       
                 6.5 (1.5)    6.6 (0.9)    6.5 (2.1)   
 -------------------------------------------------------</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">data_ihno <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">group_by</span>(genderF) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span>furniture<span class="op">::</span><span class="kw">table1</span>(<span class="st">&quot;College Major&quot;</span> =<span class="st"> </span>majorF, 
-                    <span class="st">&quot;Reason Enrolled&quot;</span> =<span class="st"> </span>reasonF,
-                    <span class="st">&quot;Statistics Quiz&quot;</span> =<span class="st"> </span>statquiz,
-                    <span class="dt">total =</span> <span class="ot">TRUE</span>)</code></pre>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb53-1" title="1">data_ihno <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb53-2" title="2"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">group_by</span>(genderF) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb53-3" title="3"><span class="st">  </span>furniture<span class="op">::</span><span class="kw">table1</span>(<span class="st">&quot;College Major&quot;</span> =<span class="st"> </span>majorF, </a>
+<a class="sourceLine" id="cb53-4" title="4">                    <span class="st">&quot;Reason Enrolled&quot;</span> =<span class="st"> </span>reasonF,</a>
+<a class="sourceLine" id="cb53-5" title="5">                    <span class="st">&quot;Statistics Quiz&quot;</span> =<span class="st"> </span>statquiz,</a>
+<a class="sourceLine" id="cb53-6" title="6">                    <span class="dt">total =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code>
 -----------------------------------------------------------
                                          genderF 
@@ -496,11 +527,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -508,12 +541,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -525,6 +557,10 @@ gitbook.start({
 "text": null
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },
@@ -543,8 +579,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

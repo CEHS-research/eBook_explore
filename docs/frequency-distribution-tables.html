@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>4 Frequency Distribution Tables | Encyclopedia of Quantitative Methods in R, vol. 1: Data Wrangling</title>
-  <meta name="description" content="Data Management: Importing, Subsetting, Creating Variables, and Saving.">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="Data Management: Importing, Subsetting, Creating Variables, and Saving." />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
   <meta property="og:title" content="4 Frequency Distribution Tables | Encyclopedia of Quantitative Methods in R, vol. 1: Data Wrangling" />
   <meta property="og:type" content="book" />
@@ -22,17 +21,17 @@
   <meta name="twitter:description" content="Data Management: Importing, Subsetting, Creating Variables, and Saving." />
   <meta name="twitter:image" content="EQM_v1_cover.png" />
 
-<meta name="author" content="Sarah Schwartz &amp; Tyson Barrett">
+<meta name="author" content="Sarah Schwartz &amp; Tyson Barrett" />
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="summary-statistics.html">
-<link rel="next" href="simple-and-stratified-descriptive-tables.html">
+<link rel="prev" href="summary-statistics.html"/>
+<link rel="next" href="simple-and-stratified-descriptive-tables.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -40,6 +39,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -56,7 +58,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -205,6 +206,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9" data-path="scatterplots.html"><a href="scatterplots.html"><i class="fa fa-check"></i><b>9</b> Scatterplots</a><ul>
 <li class="chapter" data-level="9.1" data-path="scatterplots.html"><a href="scatterplots.html#two-continuous-variables"><i class="fa fa-check"></i><b>9.1</b> Two continuous variables</a></li>
 </ul></li>
+<li class="chapter" data-level="10" data-path="binomial-sign-test.html"><a href="binomial-sign-test.html"><i class="fa fa-check"></i><b>10</b> Binomial Sign Test</a><ul>
+<li class="chapter" data-level="10.1" data-path="binomial-sign-test.html"><a href="binomial-sign-test.html#the-binomial-distribution"><i class="fa fa-check"></i><b>10.1</b> The Binomial Distribution</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="binomial-sign-test.html"><a href="binomial-sign-test.html#effect-of-hypothesised-p-value"><i class="fa fa-check"></i><b>10.1.1</b> Effect of Hypothesised “P” Value</a></li>
+<li class="chapter" data-level="10.1.2" data-path="binomial-sign-test.html"><a href="binomial-sign-test.html#effect-of-sample-size"><i class="fa fa-check"></i><b>10.1.2</b> Effect of Sample Size</a></li>
+<li class="chapter" data-level="10.1.3" data-path="binomial-sign-test.html"><a href="binomial-sign-test.html#probability-of-4-or-more-out-of-5"><i class="fa fa-check"></i><b>10.1.3</b> Probability of 4 <em>(or more)</em> out of 5</a></li>
+<li class="chapter" data-level="10.1.4" data-path="binomial-sign-test.html"><a href="binomial-sign-test.html#probability-of-8-or-more-out-of-10"><i class="fa fa-check"></i><b>10.1.4</b> Probability of 8 <em>(or more)</em> out of 10</a></li>
+<li class="chapter" data-level="10.1.5" data-path="binomial-sign-test.html"><a href="binomial-sign-test.html#probability-of-80-or-more-out-of-100"><i class="fa fa-check"></i><b>10.1.5</b> Probability of 80 <em>(or more)</em> out of 100</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="binomial-sign-test.html"><a href="binomial-sign-test.html#example-fair-coin"><i class="fa fa-check"></i><b>10.2</b> Example: Fair Coin?</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="binomial-sign-test.html"><a href="binomial-sign-test.html#enter-tabulated-data-subtotals"><i class="fa fa-check"></i><b>10.2.1</b> Enter tabulated data (subtotals)</a></li>
+<li class="chapter" data-level="10.2.2" data-path="binomial-sign-test.html"><a href="binomial-sign-test.html#two-sided-test"><i class="fa fa-check"></i><b>10.2.2</b> Two-sided Test</a></li>
+<li class="chapter" data-level="10.2.3" data-path="binomial-sign-test.html"><a href="binomial-sign-test.html#one-sided-test"><i class="fa fa-check"></i><b>10.2.3</b> One-sided Test</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="way-chi-square-test-goodness-of-fit.html"><a href="way-chi-square-test-goodness-of-fit.html"><i class="fa fa-check"></i><b>11</b> 1-way Chi Square Test, “Goodness of Fit”</a><ul>
+<li class="chapter" data-level="11.1" data-path="way-chi-square-test-goodness-of-fit.html"><a href="way-chi-square-test-goodness-of-fit.html#chi-squared-distribution"><i class="fa fa-check"></i><b>11.1</b> Chi Squared Distribution</a></li>
+<li class="chapter" data-level="11.2" data-path="way-chi-square-test-goodness-of-fit.html"><a href="way-chi-square-test-goodness-of-fit.html#chi-squared-test"><i class="fa fa-check"></i><b>11.2</b> Chi Squared Test</a></li>
+<li class="chapter" data-level="11.3" data-path="way-chi-square-test-goodness-of-fit.html"><a href="way-chi-square-test-goodness-of-fit.html#null-hypothesis-equally-likely"><i class="fa fa-check"></i><b>11.3</b> Null Hypothesis: Equally Likely</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="way-chi-square-test-goodness-of-fit.html"><a href="way-chi-square-test-goodness-of-fit.html#ex.-senator-support"><i class="fa fa-check"></i><b>11.3.1</b> Ex. Senator Support</a></li>
+<li class="chapter" data-level="11.3.2" data-path="way-chi-square-test-goodness-of-fit.html"><a href="way-chi-square-test-goodness-of-fit.html#ex.-books"><i class="fa fa-check"></i><b>11.3.2</b> Ex. Books</a></li>
+<li class="chapter" data-level="11.3.3" data-path="way-chi-square-test-goodness-of-fit.html"><a href="way-chi-square-test-goodness-of-fit.html#ex.-m-m-colors"><i class="fa fa-check"></i><b>11.3.3</b> Ex. M &amp; M Colors</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="way-chi-square-test-goodness-of-fit.html"><a href="way-chi-square-test-goodness-of-fit.html#null-hypothesis-a-specific-distribution"><i class="fa fa-check"></i><b>11.4</b> Null Hypothesis: a Specific Distribution</a><ul>
+<li class="chapter" data-level="11.4.1" data-path="way-chi-square-test-goodness-of-fit.html"><a href="way-chi-square-test-goodness-of-fit.html#ex.-m-m-colors-1"><i class="fa fa-check"></i><b>11.4.1</b> Ex. M &amp; M Colors</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="way-chi-square-test-independence.html"><a href="way-chi-square-test-independence.html"><i class="fa fa-check"></i><b>12</b> 2-way Chi Square Test “Independence”</a><ul>
+<li class="chapter" data-level="12.1" data-path="way-chi-square-test-independence.html"><a href="way-chi-square-test-independence.html#example-violent-crime-and-abuse-2x2"><i class="fa fa-check"></i><b>12.1</b> Example: Violent Crime and Abuse (2x2)</a></li>
+<li class="chapter" data-level="12.2" data-path="way-chi-square-test-independence.html"><a href="way-chi-square-test-independence.html#example-schizophrenic-treatment-cohen-textbook"><i class="fa fa-check"></i><b>12.2</b> Example: Schizophrenic Treatment (Cohen textbook)</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -229,11 +260,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="frequency-distribution-tables" class="section level1">
 <h1><span class="header-section-number">4</span> Frequency Distribution Tables</h1>
 <p>Using <code>furniture::tableF()</code> function</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(furniture)       <span class="co"># nice tables of descriptives</span></code></pre>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" title="1"><span class="kw">library</span>(furniture)       <span class="co"># nice tables of descriptives</span></a></code></pre></div>
 <div id="for-a-single-categorical-variable" class="section level2">
 <h2><span class="header-section-number">4.1</span> For a Single Categorical Variable</h2>
-<pre class="sourceCode r"><code class="sourceCode r">cancer_clean <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span>furniture<span class="op">::</span><span class="kw">tableF</span>(stage)</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" title="1">cancer_clean <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb22-2" title="2"><span class="st">  </span>furniture<span class="op">::</span><span class="kw">tableF</span>(stage)</a></code></pre></div>
 <pre><code>
 ------------------------------------
  stage Freq CumFreq Percent CumPerc
@@ -243,8 +274,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  3     1    20      4.00%   80.00% 
  4     5    25      20.00%  100.00%
 ------------------------------------</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">data_ihno <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span>furniture<span class="op">::</span><span class="kw">tableF</span>(majorF)</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" title="1">data_ihno <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb24-2" title="2"><span class="st">  </span>furniture<span class="op">::</span><span class="kw">tableF</span>(majorF)</a></code></pre></div>
 <pre><code>
 -----------------------------------------
  majorF     Freq CumFreq Percent CumPerc
@@ -258,8 +289,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="for-a-single-continuous-variable" class="section level2">
 <h2><span class="header-section-number">4.2</span> For a Single Continuous Variable</h2>
 <p>The table can get very long if there are many different values for a continuous variable.</p>
-<pre class="sourceCode r"><code class="sourceCode r">data_ihno <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span>furniture<span class="op">::</span><span class="kw">tableF</span>(statquiz)</code></pre>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" title="1">data_ihno <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb26-2" title="2"><span class="st">  </span>furniture<span class="op">::</span><span class="kw">tableF</span>(statquiz)</a></code></pre></div>
 <pre><code>
 ---------------------------------------
  statquiz Freq CumFreq Percent CumPerc
@@ -274,8 +305,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  10       2    100     2.00%   100.00%
 ---------------------------------------</code></pre>
 <p>You may specify how many values you would like displayed with the <code>n = #</code> option.</p>
-<pre class="sourceCode r"><code class="sourceCode r">data_ihno <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span>furniture<span class="op">::</span><span class="kw">tableF</span>(statquiz, <span class="dt">n =</span> <span class="dv">6</span>)</code></pre>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" title="1">data_ihno <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb28-2" title="2"><span class="st">  </span>furniture<span class="op">::</span><span class="kw">tableF</span>(statquiz, <span class="dt">n =</span> <span class="dv">6</span>)</a></code></pre></div>
 <pre><code>
 ---------------------------------------
  statquiz Freq CumFreq Percent CumPerc
@@ -291,9 +322,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="stratify--by--a-categorical-factor" class="section level2">
 <h2><span class="header-section-number">4.3</span> Stratify -by- a categorical factor</h2>
-<pre class="sourceCode r"><code class="sourceCode r">data_ihno <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">group_by</span>(genderF) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span>furniture<span class="op">::</span><span class="kw">tableF</span>(majorF)</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" title="1">data_ihno <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb30-2" title="2"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">group_by</span>(genderF) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb30-3" title="3"><span class="st">  </span>furniture<span class="op">::</span><span class="kw">tableF</span>(majorF)</a></code></pre></div>
 <pre><code>
 -----------------------------------------
  Female     Freq CumFreq Percent CumPerc
@@ -326,11 +357,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -338,12 +371,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -355,6 +387,10 @@ gitbook.start({
 "text": null
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },
@@ -373,8 +409,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

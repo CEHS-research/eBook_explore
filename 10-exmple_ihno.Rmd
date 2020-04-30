@@ -50,7 +50,7 @@ The `haven` package is downloaded as part of the `tidyverse` set of packages, bu
 * Make sure the that *folder* is the **working directory**
 
 ```{r}
-data_ihno <- read_spss("http://www.psych.nyu.edu/cohen/Ihno_dataset.sav") %>% 
+data_ihno <- haven::read_spss("https://cehs-research.github.io/PSY-6600_public/Data/Ihno_dataset.sav") %>% 
   dplyr::rename_all(tolower) %>% 
   dplyr::mutate(genderF = factor(gender, 
                                  levels = c(1, 2),
@@ -83,7 +83,7 @@ data_ihno <- read_spss("http://www.psych.nyu.edu/cohen/Ihno_dataset.sav") %>%
 
 
 ```{r}
-glimpse(data_ihno)
+tibble::glimpse(data_ihno)
 ```
 
 

@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>8 Boxplots | Encyclopedia of Quantitative Methods in R, vol. 1: Data Wrangling</title>
-  <meta name="description" content="Data Management: Importing, Subsetting, Creating Variables, and Saving.">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="Data Management: Importing, Subsetting, Creating Variables, and Saving." />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
   <meta property="og:title" content="8 Boxplots | Encyclopedia of Quantitative Methods in R, vol. 1: Data Wrangling" />
   <meta property="og:type" content="book" />
@@ -22,17 +21,17 @@
   <meta name="twitter:description" content="Data Management: Importing, Subsetting, Creating Variables, and Saving." />
   <meta name="twitter:image" content="EQM_v1_cover.png" />
 
-<meta name="author" content="Sarah Schwartz &amp; Tyson Barrett">
+<meta name="author" content="Sarah Schwartz &amp; Tyson Barrett" />
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="histograms.html">
-<link rel="next" href="scatterplots.html">
+<link rel="prev" href="histograms.html"/>
+<link rel="next" href="scatterplots.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -40,6 +39,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -56,7 +58,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -205,6 +206,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9" data-path="scatterplots.html"><a href="scatterplots.html"><i class="fa fa-check"></i><b>9</b> Scatterplots</a><ul>
 <li class="chapter" data-level="9.1" data-path="scatterplots.html"><a href="scatterplots.html#two-continuous-variables"><i class="fa fa-check"></i><b>9.1</b> Two continuous variables</a></li>
 </ul></li>
+<li class="chapter" data-level="10" data-path="binomial-sign-test.html"><a href="binomial-sign-test.html"><i class="fa fa-check"></i><b>10</b> Binomial Sign Test</a><ul>
+<li class="chapter" data-level="10.1" data-path="binomial-sign-test.html"><a href="binomial-sign-test.html#the-binomial-distribution"><i class="fa fa-check"></i><b>10.1</b> The Binomial Distribution</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="binomial-sign-test.html"><a href="binomial-sign-test.html#effect-of-hypothesised-p-value"><i class="fa fa-check"></i><b>10.1.1</b> Effect of Hypothesised “P” Value</a></li>
+<li class="chapter" data-level="10.1.2" data-path="binomial-sign-test.html"><a href="binomial-sign-test.html#effect-of-sample-size"><i class="fa fa-check"></i><b>10.1.2</b> Effect of Sample Size</a></li>
+<li class="chapter" data-level="10.1.3" data-path="binomial-sign-test.html"><a href="binomial-sign-test.html#probability-of-4-or-more-out-of-5"><i class="fa fa-check"></i><b>10.1.3</b> Probability of 4 <em>(or more)</em> out of 5</a></li>
+<li class="chapter" data-level="10.1.4" data-path="binomial-sign-test.html"><a href="binomial-sign-test.html#probability-of-8-or-more-out-of-10"><i class="fa fa-check"></i><b>10.1.4</b> Probability of 8 <em>(or more)</em> out of 10</a></li>
+<li class="chapter" data-level="10.1.5" data-path="binomial-sign-test.html"><a href="binomial-sign-test.html#probability-of-80-or-more-out-of-100"><i class="fa fa-check"></i><b>10.1.5</b> Probability of 80 <em>(or more)</em> out of 100</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="binomial-sign-test.html"><a href="binomial-sign-test.html#example-fair-coin"><i class="fa fa-check"></i><b>10.2</b> Example: Fair Coin?</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="binomial-sign-test.html"><a href="binomial-sign-test.html#enter-tabulated-data-subtotals"><i class="fa fa-check"></i><b>10.2.1</b> Enter tabulated data (subtotals)</a></li>
+<li class="chapter" data-level="10.2.2" data-path="binomial-sign-test.html"><a href="binomial-sign-test.html#two-sided-test"><i class="fa fa-check"></i><b>10.2.2</b> Two-sided Test</a></li>
+<li class="chapter" data-level="10.2.3" data-path="binomial-sign-test.html"><a href="binomial-sign-test.html#one-sided-test"><i class="fa fa-check"></i><b>10.2.3</b> One-sided Test</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="way-chi-square-test-goodness-of-fit.html"><a href="way-chi-square-test-goodness-of-fit.html"><i class="fa fa-check"></i><b>11</b> 1-way Chi Square Test, “Goodness of Fit”</a><ul>
+<li class="chapter" data-level="11.1" data-path="way-chi-square-test-goodness-of-fit.html"><a href="way-chi-square-test-goodness-of-fit.html#chi-squared-distribution"><i class="fa fa-check"></i><b>11.1</b> Chi Squared Distribution</a></li>
+<li class="chapter" data-level="11.2" data-path="way-chi-square-test-goodness-of-fit.html"><a href="way-chi-square-test-goodness-of-fit.html#chi-squared-test"><i class="fa fa-check"></i><b>11.2</b> Chi Squared Test</a></li>
+<li class="chapter" data-level="11.3" data-path="way-chi-square-test-goodness-of-fit.html"><a href="way-chi-square-test-goodness-of-fit.html#null-hypothesis-equally-likely"><i class="fa fa-check"></i><b>11.3</b> Null Hypothesis: Equally Likely</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="way-chi-square-test-goodness-of-fit.html"><a href="way-chi-square-test-goodness-of-fit.html#ex.-senator-support"><i class="fa fa-check"></i><b>11.3.1</b> Ex. Senator Support</a></li>
+<li class="chapter" data-level="11.3.2" data-path="way-chi-square-test-goodness-of-fit.html"><a href="way-chi-square-test-goodness-of-fit.html#ex.-books"><i class="fa fa-check"></i><b>11.3.2</b> Ex. Books</a></li>
+<li class="chapter" data-level="11.3.3" data-path="way-chi-square-test-goodness-of-fit.html"><a href="way-chi-square-test-goodness-of-fit.html#ex.-m-m-colors"><i class="fa fa-check"></i><b>11.3.3</b> Ex. M &amp; M Colors</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="way-chi-square-test-goodness-of-fit.html"><a href="way-chi-square-test-goodness-of-fit.html#null-hypothesis-a-specific-distribution"><i class="fa fa-check"></i><b>11.4</b> Null Hypothesis: a Specific Distribution</a><ul>
+<li class="chapter" data-level="11.4.1" data-path="way-chi-square-test-goodness-of-fit.html"><a href="way-chi-square-test-goodness-of-fit.html#ex.-m-m-colors-1"><i class="fa fa-check"></i><b>11.4.1</b> Ex. M &amp; M Colors</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="way-chi-square-test-independence.html"><a href="way-chi-square-test-independence.html"><i class="fa fa-check"></i><b>12</b> 2-way Chi Square Test “Independence”</a><ul>
+<li class="chapter" data-level="12.1" data-path="way-chi-square-test-independence.html"><a href="way-chi-square-test-independence.html#example-violent-crime-and-abuse-2x2"><i class="fa fa-check"></i><b>12.1</b> Example: Violent Crime and Abuse (2x2)</a></li>
+<li class="chapter" data-level="12.2" data-path="way-chi-square-test-independence.html"><a href="way-chi-square-test-independence.html#example-schizophrenic-treatment-cohen-textbook"><i class="fa fa-check"></i><b>12.2</b> Example: Schizophrenic Treatment (Cohen textbook)</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -229,18 +260,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="boxplots" class="section level1">
 <h1><span class="header-section-number">8</span> Boxplots</h1>
 <p>Using the <code>ggplot2::geom_boxplot()</code> function</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)       <span class="co"># super helpful everything, including ggplot</span></code></pre>
-<p>For boxplots, you must specify the variable of interest within the aesthetics as the <code>y</code> variable: <code>ggplot(aes(y = continuous_var))</code> before adding the <code>geom_boxplot()</code> layer <span class="citation">(Wickham et al. <a href="references.html#ref-R-ggplot2">2019</a>)</span>.</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" title="1"><span class="kw">library</span>(tidyverse)       <span class="co"># super helpful everything, including ggplot</span></a></code></pre></div>
+<p>For boxplots, you must specify the variable of interest within the aesthetics as the <code>y</code> variable: <code>ggplot(aes(y = continuous_var))</code> before adding the <code>geom_boxplot()</code> layer <span class="citation">(Wickham et al. <a href="references.html#ref-R-ggplot2" role="doc-biblioref">2019</a>)</span>.</p>
 <blockquote>
 <p>Reminder: Steps BEFORE the <code>ggplot()</code> are combined with pipes <code>%&gt;%</code>, whereas layers of the plot are combined with the addition symbol <code>+</code>.</p>
 </blockquote>
 <div id="single-continuous-variable-1" class="section level2">
 <h2><span class="header-section-number">8.1</span> Single continuous variable</h2>
 <p>If you only want to produce a single boxplot, then the aesthetics must include <strong>some quoted text</strong> as the <code>x</code> variable.</p>
-<pre class="sourceCode r"><code class="sourceCode r">cancer_clean <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">&quot;Full Data Set&quot;</span>, 
-             <span class="dt">y =</span> weighin)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_boxplot</span>()</code></pre>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb63-1" title="1">cancer_clean <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb63-2" title="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">&quot;Full Data Set&quot;</span>, </a>
+<a class="sourceLine" id="cb63-3" title="3">             <span class="dt">y =</span> weighin)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb63-4" title="4"><span class="st">  </span><span class="kw">geom_boxplot</span>()</a></code></pre></div>
 <p><img src="eBook_install_files/figure-html/unnamed-chunk-52-1.png" width="576" style="display: block; margin: auto;" /></p>
 </div>
 <div id="single-box--for--a-subset" class="section level2">
@@ -251,32 +282,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <blockquote>
 <p>When using a <code>dplyr::filter()</code> step, make sure to change the <code>x = "text"</code>, too.</p>
 </blockquote>
-<pre class="sourceCode r"><code class="sourceCode r">cancer_clean <span class="op">%&gt;%</span>
-<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(weighin <span class="op">&lt;</span><span class="st"> </span><span class="dv">172</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">&quot;Weigh At Baseline &lt; 172&quot;</span>, 
-             <span class="dt">y =</span> weighin)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_boxplot</span>()</code></pre>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb64-1" title="1">cancer_clean <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb64-2" title="2"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(weighin <span class="op">&lt;</span><span class="st"> </span><span class="dv">172</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb64-3" title="3"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">&quot;Weigh At Baseline &lt; 172&quot;</span>, </a>
+<a class="sourceLine" id="cb64-4" title="4">             <span class="dt">y =</span> weighin)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb64-5" title="5"><span class="st">  </span><span class="kw">geom_boxplot</span>()</a></code></pre></div>
 <p><img src="eBook_install_files/figure-html/unnamed-chunk-53-1.png" width="576" style="display: block; margin: auto;" /></p>
 </div>
 <div id="two-requirements" class="section level3">
 <h3><span class="header-section-number">8.2.2</span> Two Requirements</h3>
 <p>When testing for a match to a value <em>(for equality)</em> use <code>==</code> instead of <code>=</code> in the <code>dplyr::filter()</code> step.</p>
 <p>Use the <code>&amp;</code> symbol to require multiple conditions for the subset, but only include one quoted text phrase for <code>x</code>.</p>
-<pre class="sourceCode r"><code class="sourceCode r">cancer_clean <span class="op">%&gt;%</span>
-<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(weighin <span class="op">&gt;=</span><span class="st"> </span><span class="dv">150</span> <span class="op">&amp;</span><span class="st"> </span>trt <span class="op">==</span><span class="st"> &quot;Placebo&quot;</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">&quot;Placebo and at least 150 Pounds&quot;</span>, 
-             <span class="dt">y =</span> weighin)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_boxplot</span>()</code></pre>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb65-1" title="1">cancer_clean <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb65-2" title="2"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(weighin <span class="op">&gt;=</span><span class="st"> </span><span class="dv">150</span> <span class="op">&amp;</span><span class="st"> </span>trt <span class="op">==</span><span class="st"> &quot;Placebo&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb65-3" title="3"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">&quot;Placebo and at least 150 Pounds&quot;</span>, </a>
+<a class="sourceLine" id="cb65-4" title="4">             <span class="dt">y =</span> weighin)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb65-5" title="5"><span class="st">  </span><span class="kw">geom_boxplot</span>()</a></code></pre></div>
 <p><img src="eBook_install_files/figure-html/unnamed-chunk-54-1.png" width="576" style="display: block; margin: auto;" /></p>
 </div>
 <div id="a-requirement-specified-with-a-list" class="section level3">
 <h3><span class="header-section-number">8.2.3</span> A Requirement Specified with a List</h3>
 <p>A helpful symbol-set is <code>%in%</code>, which tests if the thing <em>before</em> it is <strong>included in</strong> the list of elements that comes <em>after</em> it.</p>
-<pre class="sourceCode r"><code class="sourceCode r">cancer_clean <span class="op">%&gt;%</span>
-<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(trt <span class="op">==</span><span class="st"> &quot;Aloe Juice&quot;</span> <span class="op">&amp;</span><span class="st"> </span>stage <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>)) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">&quot;On Aloe Juice and Stage 2-4&quot;</span>, 
-             <span class="dt">y =</span> weighin)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_boxplot</span>()</code></pre>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb66-1" title="1">cancer_clean <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb66-2" title="2"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(trt <span class="op">==</span><span class="st"> &quot;Aloe Juice&quot;</span> <span class="op">&amp;</span><span class="st"> </span>stage <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb66-3" title="3"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">&quot;On Aloe Juice and Stage 2-4&quot;</span>, </a>
+<a class="sourceLine" id="cb66-4" title="4">             <span class="dt">y =</span> weighin)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb66-5" title="5"><span class="st">  </span><span class="kw">geom_boxplot</span>()</a></code></pre></div>
 <p><img src="eBook_install_files/figure-html/unnamed-chunk-55-1.png" width="576" style="display: block; margin: auto;" /></p>
 </div>
 </div>
@@ -290,28 +321,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <div id="use-fill-var_name" class="section level3">
 <h3><span class="header-section-number">8.3.1</span> Use <code>fill = var_name</code></h3>
-<pre class="sourceCode r"><code class="sourceCode r">cancer_clean <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">&quot;Full Sample&quot;</span>,
-             <span class="dt">y =</span> weighin,
-             <span class="dt">fill =</span> trt)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_boxplot</span>()</code></pre>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb67-1" title="1">cancer_clean <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb67-2" title="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">&quot;Full Sample&quot;</span>,</a>
+<a class="sourceLine" id="cb67-3" title="3">             <span class="dt">y =</span> weighin,</a>
+<a class="sourceLine" id="cb67-4" title="4">             <span class="dt">fill =</span> trt)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb67-5" title="5"><span class="st">  </span><span class="kw">geom_boxplot</span>()</a></code></pre></div>
 <p><img src="eBook_install_files/figure-html/unnamed-chunk-56-1.png" width="576" style="display: block; margin: auto;" /></p>
 </div>
 <div id="use-x-var_name" class="section level3">
 <h3><span class="header-section-number">8.3.2</span> Use <code>x = var_name</code></h3>
-<pre class="sourceCode r"><code class="sourceCode r">cancer_clean <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> trt, 
-             <span class="dt">y =</span> weighin)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_boxplot</span>()</code></pre>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb68-1" title="1">cancer_clean <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb68-2" title="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> trt, </a>
+<a class="sourceLine" id="cb68-3" title="3">             <span class="dt">y =</span> weighin)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb68-4" title="4"><span class="st">  </span><span class="kw">geom_boxplot</span>()</a></code></pre></div>
 <p><img src="eBook_install_files/figure-html/unnamed-chunk-57-1.png" width="576" style="display: block; margin: auto;" /></p>
 </div>
 <div id="use-facet_grid.-var_name" class="section level3">
 <h3><span class="header-section-number">8.3.3</span> Use <code>facet_grid(. ~ var_name)</code></h3>
-<pre class="sourceCode r"><code class="sourceCode r">cancer_clean <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">&quot;Full Sample&quot;</span>,
-             <span class="dt">y =</span> weighin)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">facet_grid</span>(. <span class="op">~</span><span class="st"> </span>trt)</code></pre>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb69-1" title="1">cancer_clean <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb69-2" title="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">&quot;Full Sample&quot;</span>,</a>
+<a class="sourceLine" id="cb69-3" title="3">             <span class="dt">y =</span> weighin)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb69-4" title="4"><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb69-5" title="5"><span class="st">  </span><span class="kw">facet_grid</span>(. <span class="op">~</span><span class="st"> </span>trt)</a></code></pre></div>
 <p><img src="eBook_install_files/figure-html/unnamed-chunk-58-1.png" width="576" style="display: block; margin: auto;" /></p>
 </div>
 </div>
@@ -320,30 +351,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>You may combine any of the three previous specification, one per categorical (<code>factor</code>) variable.</p>
 <div id="use-fill-var_name_1-and-x-var_name_2" class="section level3">
 <h3><span class="header-section-number">8.4.1</span> Use <code>fill = var_name_1</code> and <code>x = var_name_2</code></h3>
-<pre class="sourceCode r"><code class="sourceCode r">cancer_clean <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> stage,
-             <span class="dt">y =</span> weighin,
-             <span class="dt">fill =</span> trt)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_boxplot</span>()</code></pre>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb70-1" title="1">cancer_clean <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb70-2" title="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> stage,</a>
+<a class="sourceLine" id="cb70-3" title="3">             <span class="dt">y =</span> weighin,</a>
+<a class="sourceLine" id="cb70-4" title="4">             <span class="dt">fill =</span> trt)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb70-5" title="5"><span class="st">  </span><span class="kw">geom_boxplot</span>()</a></code></pre></div>
 <p><img src="eBook_install_files/figure-html/unnamed-chunk-59-1.png" width="576" style="display: block; margin: auto;" /></p>
 </div>
 <div id="use-x-var_name_1-and-facet_grid.-var_name_2" class="section level3">
 <h3><span class="header-section-number">8.4.2</span> Use <code>x = var_name_1</code> and <code>facet_grid(. ~ var_name_2)</code></h3>
-<pre class="sourceCode r"><code class="sourceCode r">cancer_clean <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> trt,
-             <span class="dt">y =</span> weighin)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">facet_grid</span>(. <span class="op">~</span><span class="st"> </span>stage)</code></pre>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb71-1" title="1">cancer_clean <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb71-2" title="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> trt,</a>
+<a class="sourceLine" id="cb71-3" title="3">             <span class="dt">y =</span> weighin)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb71-4" title="4"><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb71-5" title="5"><span class="st">  </span><span class="kw">facet_grid</span>(. <span class="op">~</span><span class="st"> </span>stage)</a></code></pre></div>
 <p><img src="eBook_install_files/figure-html/unnamed-chunk-60-1.png" width="576" style="display: block; margin: auto;" /></p>
 </div>
 <div id="use-fill-var_name_1-and-facet_grid.-var_name_2" class="section level3">
 <h3><span class="header-section-number">8.4.3</span> Use <code>fill = var_name_1</code> and <code>facet_grid(. ~ var_name_2)</code></h3>
-<pre class="sourceCode r"><code class="sourceCode r">cancer_clean <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">&quot;Full Sample&quot;</span>,
-             <span class="dt">y =</span> weighin,
-             <span class="dt">fill =</span> trt)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">facet_grid</span>(. <span class="op">~</span><span class="st"> </span>stage)</code></pre>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb72-1" title="1">cancer_clean <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb72-2" title="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">&quot;Full Sample&quot;</span>,</a>
+<a class="sourceLine" id="cb72-3" title="3">             <span class="dt">y =</span> weighin,</a>
+<a class="sourceLine" id="cb72-4" title="4">             <span class="dt">fill =</span> trt)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb72-5" title="5"><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb72-6" title="6"><span class="st">  </span><span class="kw">facet_grid</span>(. <span class="op">~</span><span class="st"> </span>stage)</a></code></pre></div>
 <p><img src="eBook_install_files/figure-html/unnamed-chunk-61-1.png" width="576" style="display: block; margin: auto;" /></p>
 </div>
 </div>
@@ -351,12 +382,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">8.5</span> Multiple Boxes -for- a Subset AND -by- 2 Factors</h2>
 <p>The layers maybe combined to create more complicated plots.</p>
 <p>Here is a plot for only participants who were in stage 1, 2, or 4 (n &gt; 1 per stage), and compares the final oral condition for each stage between participants receiving the Aloe treatment vs. the placebo.</p>
-<pre class="sourceCode r"><code class="sourceCode r">cancer_clean <span class="op">%&gt;%</span>
-<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(stage <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;1&quot;</span>, <span class="st">&quot;2&quot;</span>, <span class="st">&quot;4&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> stage, 
-             <span class="dt">y =</span> totalcw6,
-             <span class="dt">fill =</span> trt)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_boxplot</span>() </code></pre>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb73-1" title="1">cancer_clean <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb73-2" title="2"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(stage <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;1&quot;</span>, <span class="st">&quot;2&quot;</span>, <span class="st">&quot;4&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb73-3" title="3"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> stage, </a>
+<a class="sourceLine" id="cb73-4" title="4">             <span class="dt">y =</span> totalcw6,</a>
+<a class="sourceLine" id="cb73-5" title="5">             <span class="dt">fill =</span> trt)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb73-6" title="6"><span class="st">  </span><span class="kw">geom_boxplot</span>() </a></code></pre></div>
 <p><img src="eBook_install_files/figure-html/unnamed-chunk-62-1.png" width="576" style="display: block; margin: auto;" /></p>
 </div>
 <div id="multiple-boxes--for--repeated-measurements" class="section level2">
@@ -365,9 +396,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <blockquote>
 <p>To sort a dataset, use the <code>dplyr::arrange()</code> function and include the variable or variables you wish to sort by in the parentheses.</p>
 </blockquote>
-<pre class="sourceCode r"><code class="sourceCode r">cancer_clean <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">arrange</span>(id) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(id, totalcin, totalcw2, totalcw4, totalcw6)</code></pre>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb74-1" title="1">cancer_clean <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb74-2" title="2"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">arrange</span>(id) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb74-3" title="3"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(id, totalcin, totalcw2, totalcw4, totalcw6)</a></code></pre></div>
 <pre><code># A tibble: 25 x 5
    id    totalcin totalcw2 totalcw4 totalcw6
    &lt;fct&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
@@ -387,12 +418,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <blockquote>
 <p>Ignore the message that says <em>“attributes are not identical across measure variables; they will be dropped”</em>.</p>
 </blockquote>
-<pre class="sourceCode r"><code class="sourceCode r">cancer_clean <span class="op">%&gt;%</span>
-<span class="st">  </span>tidyr<span class="op">::</span><span class="kw">gather</span>(<span class="dt">key =</span> <span class="st">&quot;time&quot;</span>, 
-                <span class="dt">value =</span> <span class="st">&quot;value&quot;</span>, 
-                totalcin, totalcw2, totalcw4, totalcw6) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">arrange</span>(id, time) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(id, time, value)</code></pre>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb76-1" title="1">cancer_clean <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb76-2" title="2"><span class="st">  </span>tidyr<span class="op">::</span><span class="kw">gather</span>(<span class="dt">key =</span> <span class="st">&quot;time&quot;</span>, </a>
+<a class="sourceLine" id="cb76-3" title="3">                <span class="dt">value =</span> <span class="st">&quot;value&quot;</span>, </a>
+<a class="sourceLine" id="cb76-4" title="4">                totalcin, totalcw2, totalcw4, totalcw6) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb76-5" title="5"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">arrange</span>(id, time) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb76-6" title="6"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(id, time, value)</a></code></pre></div>
 <pre><code># A tibble: 100 x 3
    id    time     value
    &lt;fct&gt; &lt;chr&gt;    &lt;dbl&gt;
@@ -411,33 +442,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <blockquote>
 <p>Ignore the additional message that says <em>“Removed 2 rows containing non-finite values (stat_boxplot)”</em>. This is just alerting you to the fact that two people are missing their week 6 oral condiditon values.</p>
 </blockquote>
-<pre class="sourceCode r"><code class="sourceCode r">cancer_clean <span class="op">%&gt;%</span>
-<span class="st">  </span>tidyr<span class="op">::</span><span class="kw">gather</span>(<span class="dt">key =</span> <span class="st">&quot;time&quot;</span>, 
-                <span class="dt">value =</span> <span class="st">&quot;value&quot;</span>, 
-                totalcin, totalcw2, totalcw4, totalcw6) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> time, 
-             <span class="dt">y =</span> value)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_boxplot</span>()</code></pre>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb78-1" title="1">cancer_clean <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb78-2" title="2"><span class="st">  </span>tidyr<span class="op">::</span><span class="kw">gather</span>(<span class="dt">key =</span> <span class="st">&quot;time&quot;</span>, </a>
+<a class="sourceLine" id="cb78-3" title="3">                <span class="dt">value =</span> <span class="st">&quot;value&quot;</span>, </a>
+<a class="sourceLine" id="cb78-4" title="4">                totalcin, totalcw2, totalcw4, totalcw6) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb78-5" title="5"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> time, </a>
+<a class="sourceLine" id="cb78-6" title="6">             <span class="dt">y =</span> value)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb78-7" title="7"><span class="st">  </span><span class="kw">geom_boxplot</span>()</a></code></pre></div>
 <p><img src="eBook_install_files/figure-html/unnamed-chunk-65-1.png" width="576" style="display: block; margin: auto;" /></p>
 <div id="multiple-boxes--for--repeated-measurements-and--by--a-factor" class="section level3">
 <h3><span class="header-section-number">8.6.1</span> Multiple Boxes -for- Repeated Measurements AND -by- a Factor</h3>
-<pre class="sourceCode r"><code class="sourceCode r">cancer_clean <span class="op">%&gt;%</span>
-<span class="st">  </span>tidyr<span class="op">::</span><span class="kw">gather</span>(<span class="dt">key =</span> <span class="st">&quot;time&quot;</span>, 
-                <span class="dt">value =</span> <span class="st">&quot;value&quot;</span>, 
-                totalcin, totalcw2, totalcw4, totalcw6) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> time, 
-             <span class="dt">y =</span> value,
-             <span class="dt">fill =</span> trt)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_boxplot</span>()</code></pre>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb79-1" title="1">cancer_clean <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb79-2" title="2"><span class="st">  </span>tidyr<span class="op">::</span><span class="kw">gather</span>(<span class="dt">key =</span> <span class="st">&quot;time&quot;</span>, </a>
+<a class="sourceLine" id="cb79-3" title="3">                <span class="dt">value =</span> <span class="st">&quot;value&quot;</span>, </a>
+<a class="sourceLine" id="cb79-4" title="4">                totalcin, totalcw2, totalcw4, totalcw6) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb79-5" title="5"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> time, </a>
+<a class="sourceLine" id="cb79-6" title="6">             <span class="dt">y =</span> value,</a>
+<a class="sourceLine" id="cb79-7" title="7">             <span class="dt">fill =</span> trt)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb79-8" title="8"><span class="st">  </span><span class="kw">geom_boxplot</span>()</a></code></pre></div>
 <p><img src="eBook_install_files/figure-html/unnamed-chunk-66-1.png" width="576" style="display: block; margin: auto;" /></p>
-<pre class="sourceCode r"><code class="sourceCode r">cancer_clean <span class="op">%&gt;%</span>
-<span class="st">  </span>tidyr<span class="op">::</span><span class="kw">gather</span>(<span class="dt">key =</span> <span class="st">&quot;time&quot;</span>, 
-                <span class="dt">value =</span> <span class="st">&quot;value&quot;</span>, 
-                totalcin, totalcw2, totalcw4, totalcw6) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> time, 
-             <span class="dt">y =</span> value)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">facet_grid</span>(. <span class="op">~</span><span class="st"> </span>trt)</code></pre>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb80-1" title="1">cancer_clean <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb80-2" title="2"><span class="st">  </span>tidyr<span class="op">::</span><span class="kw">gather</span>(<span class="dt">key =</span> <span class="st">&quot;time&quot;</span>, </a>
+<a class="sourceLine" id="cb80-3" title="3">                <span class="dt">value =</span> <span class="st">&quot;value&quot;</span>, </a>
+<a class="sourceLine" id="cb80-4" title="4">                totalcin, totalcw2, totalcw4, totalcw6) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb80-5" title="5"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> time, </a>
+<a class="sourceLine" id="cb80-6" title="6">             <span class="dt">y =</span> value)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb80-7" title="7"><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb80-8" title="8"><span class="st">  </span><span class="kw">facet_grid</span>(. <span class="op">~</span><span class="st"> </span>trt)</a></code></pre></div>
 <p><img src="eBook_install_files/figure-html/unnamed-chunk-67-1.png" width="576" style="display: block; margin: auto;" /></p>
 
 </div>
@@ -454,11 +485,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -466,12 +499,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -483,6 +515,10 @@ gitbook.start({
 "text": null
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },
@@ -501,8 +537,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

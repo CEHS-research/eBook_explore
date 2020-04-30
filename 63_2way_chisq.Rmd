@@ -1,0 +1,118 @@
+# 2-way Chi Square Test "Independence"
+
+## Example: Violent Crime and Abuse (2x2)
+
+```{r}
+tab_crime <- tibble::tribble(~abuse, ~violent, ~count,
+                             "Yes Abuse", "Yes Violet", 70,
+                             "Yes Abuse", "No Violet",  30,
+                             "No Abuse",  "Yes Violet", 40,
+                             "No Abuse",  "No Violet",  60) %>% 
+  tidyr::pivot_wider(names_from = violent,
+                     values_from = count) %>% 
+  tibble::column_to_rownames(var = "abuse") %>% 
+  as.matrix() %>% 
+  as.table()
+  
+
+tab_crime
+```
+
+
+```{r}
+tab_crime %>% 
+  chisq.test()
+```
+
+```{r}
+tab_crime %>% 
+  chisq.test(correct = FALSE)
+```
+
+
+```{r}
+tab_crime %>% 
+  effectsize::cramers_v()
+```
+
+
+## Example: Schizophrenic Treatment (Cohen textbook)
+
+```{r}
+schizo_counts <- tibble::tribble(
+  ~trt, ~response, ~n,
+  "Psychodynamic Therapy", "Improved",  6,
+  "Psychodynamic Therapy", "No Change", 6,
+  "Psychodynamic Therapy", "Got Worse", 8,
+  "Rogerian Therapy", "Improved",  4,
+  "Rogerian Therapy", "No Change", 14,
+  "Rogerian Therapy", "Got Worse", 2,
+  "Group Therapy", "Improved",  8,
+  "Group Therapy", "No Change", 3,
+  "Group Therapy", "Got Worse", 9,
+  "Token Economy", "Improved",  12,
+  "Token Economy", "No Change", 5,
+  "Token Economy", "Got Worse", 3)
+
+schizo_counts
+```
+
+
+
+```{r}
+df_schizo <- schizo_counts %>% 
+  tidyr::uncount(weights = n) %>% 
+  dplyr::mutate(id = row_number()) %>% 
+  dplyr::select(id, trt, response)
+
+psych::headTail(df_schizo)
+```
+
+```{r}
+df_schizo %>% 
+  furniture::tableX(trt, response)
+```
+
+```{r}
+df_schizo %>% 
+  dplyr::group_by("Treatment Group" = trt) %>% 
+  furniture::table1("Six Months" = response)
+```
+
+```{r}
+df_schizo %>% 
+  dplyr::group_by("Treatment Group" = trt) %>% 
+  furniture::table1("Six Months" = response,
+                    test = TRUE,
+                    output = "markdown")
+```
+
+```{r}
+df_schizo %>% 
+  dplyr::select(response, trt) %>% 
+  table() %>% 
+  addmargins()
+```
+
+```{r}
+fit_schizo <- df_schizo %>% 
+  dplyr::select(response, trt) %>% 
+  table() %>% 
+  chisq.test()
+
+fit_schizo
+```
+
+
+```{r}
+fit_schizo$resid
+```
+
+
+
+```{r}
+df_schizo %>% 
+  dplyr::select(response, trt) %>% 
+  table() %>% 
+  effectsize::cramers_v()
+```

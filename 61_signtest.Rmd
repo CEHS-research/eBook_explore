@@ -1,0 +1,216 @@
+# Binomial Sign Test
+
+```{r}
+library(tidyverse)
+library(pander)
+```
+
+## The Binomial Distribution
+
+```{r, fig.width=4, fig.height=4}
+data.frame(count = 0:13) %>% 
+  dplyr::mutate(prob = dbinom(count, size = 13, p = .50)) %>% 
+  ggplot(aes(x = count,
+             y = prob)) +
+  geom_point() +
+  geom_segment(aes(xend = count, 
+                   y = 0, 
+                   yend = prob),
+               size = .1) +
+  theme_bw() +
+  scale_x_continuous() +
+  labs(x = "Count",
+       y = "Probability") +
+  theme(legend.position = "none")
+```
+
+### Effect of Hypothesised "P" Value
+
+
+```{r, fig.width=7, fig.height=3}
+ex_n = 30
+
+data.frame(count = 0:35) %>% 
+  dplyr::mutate(prob_10 = dbinom(count, size = ex_n, p = .10)) %>% 
+  dplyr::mutate(prob_25 = dbinom(count, size = ex_n, p = .25)) %>% 
+  dplyr::mutate(prob_50 = dbinom(count, size = ex_n, p = .50)) %>% 
+  dplyr::mutate(prob_75 = dbinom(count, size = ex_n, p = .75)) %>% 
+  dplyr::mutate(prob_90 = dbinom(count, size = ex_n, p = .90)) %>%
+  tidyr::pivot_longer(cols = contains("prob"),
+                      names_to = "percent",
+                      names_prefix = "prob_",
+                      values_to = "prob") %>% 
+  dplyr::mutate(percent = paste0("P = .", percent)) %>% 
+  ggplot(aes(x = count,
+             y = prob)) +
+  geom_point() +
+  geom_segment(aes(xend = count, 
+                   y = 0, 
+                   yend = prob),
+               size = .1) +
+  theme_bw() +
+  scale_x_continuous() +
+  labs(x = "Count",
+       y = "Probability") +
+  theme(legend.position = "none") +
+  facet_grid(~ percent)
+```
+
+
+### Effect of Sample Size
+
+
+### Probability of 4 *(or more)* out of 5
+
+
+```{r}
+ex_n = 5
+ex_x = 4
+ex_p = .50
+
+dbinom(x    = ex_x, 
+       size = ex_n, 
+       prob = ex_p)
+````
+
+
+
+
+```{r, fig.width=3, fig.height=3}
+data.frame(count = 0:ex_n) %>% 
+  dplyr::mutate(prob = dbinom(count, size = ex_n, p = ex_p)) %>% 
+  dplyr::mutate(mark = cut(count, 
+                           breaks = c(0, ex_x - .5, ex_n),
+                           include.lowest = TRUE)) %>% 
+  ggplot(aes(x = count,
+             y = prob,
+             color = mark)) +
+  geom_point(size = 2) +
+  geom_segment(aes(xend = count, 
+                   y = 0, 
+                   yend = prob),
+               size = 1) +
+  theme_bw() +
+  scale_x_continuous(breaks = 0:ex_n) +
+  scale_color_manual(values = c("black", "red")) +
+  labs(x = "Count",
+       y = "Probability") +
+  theme(legend.position = "none")
+```
+
+
+### Probability of 8 *(or more)* out of 10 
+
+```{r}
+ex_n = 10
+ex_x = 8
+ex_p = .50
+
+dbinom(x    = ex_x, 
+       size = ex_n, 
+       prob = ex_p)
+````
+
+
+```{r, fig.width=3, fig.height=3}
+data.frame(count = 0:ex_n) %>% 
+  dplyr::mutate(prob = dbinom(count, size = ex_n, p = ex_p)) %>% 
+  dplyr::mutate(mark = cut(count, 
+                           breaks = c(0, ex_x -.5, ex_n),
+                           include.lowest = TRUE)) %>% 
+  ggplot(aes(x = count,
+             y = prob,
+             color = mark)) +
+  geom_point(size = 2) +
+  geom_segment(aes(xend = count, 
+                   y = 0, 
+                   yend = prob),
+               size = 1) +
+  theme_bw() +
+  scale_x_continuous(breaks = 0:ex_n) +
+  scale_color_manual(values = c("black", "red")) +
+  labs(x = "Count",
+       y = "Probability") +
+  theme(legend.position = "none")
+```
+
+### Probability of 80 *(or more)* out of 100 
+
+```{r}
+ex_n = 100
+ex_x = 80
+ex_p = .50
+
+dbinom(x    = ex_x, 
+       size = ex_n, 
+       prob = ex_p)
+````
+
+```{r, fig.width=3, fig.height=3}
+data.frame(count = 0:ex_n) %>% 
+  dplyr::mutate(prob = dbinom(count, size = ex_n, p = ex_p)) %>% 
+  dplyr::mutate(mark = cut(count, 
+                           breaks = c(0, ex_x, ex_n),
+                           include.lowest = TRUE)) %>% 
+  ggplot(aes(x = count,
+             y = prob,
+             color = mark)) +
+  geom_point() +
+  geom_segment(aes(xend = count, 
+                   y = 0, 
+                   yend = prob)) +
+  theme_bw() +
+  scale_x_continuous() +
+  scale_color_manual(values = c("black", "red")) +
+  labs(x = "Count",
+       y = "Probability") +
+  theme(legend.position = "none")
+```
+
+## Example: Fair Coin?
+
+**Experiment**
+A coin is flipped ten times and lands on heads eight times
+
+**Quesiton**
+Is coin biased?
+
+**Hypotheses**
+$$
+H_0:  Proportion (X) = .50 \text{ in population} \\
+
+H_1:  Proportion (X) \ne .50 \text{ in population} 
+$$
+
+### Enter tabulated data (subtotals)
+
+```{r}
+tab_coin <- c(heads = 8,
+              tails = 2) %>%
+  as.table()
+
+tab_coin %>% 
+  addmargins()
+```
+
+### Two-sided Test
+
+**defaults**
+
+* Fifty-fifty change: $H_0: P = .50 \rightarrow$ `p = 0.50`
+* Two-sided alternative: `alternative = "two.sided"`
+* 95% confidence interval: `conf.level = 0.95`
+
+```{r}
+tab_coin %>%
+  binom.test()
+```
+
+### One-sided Test
+
+```{r}
+tab_coin %>%
+  binom.test(alternative = "greater")
+```
+
+

@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>10 Binomial Sign Test | Encyclopedia of Quantitative Methods in R, vol. 1: Data Wrangling</title>
+  <meta name="description" content="Data Management: Importing, Subsetting, Creating Variables, and Saving." />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="10 Binomial Sign Test | Encyclopedia of Quantitative Methods in R, vol. 1: Data Wrangling" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="EQM_v1_cover.png" />
+  <meta property="og:description" content="Data Management: Importing, Subsetting, Creating Variables, and Saving." />
+  <meta name="github-repo" content="cehs-research/eBook_wrangle" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="10 Binomial Sign Test | Encyclopedia of Quantitative Methods in R, vol. 1: Data Wrangling" />
+  
+  <meta name="twitter:description" content="Data Management: Importing, Subsetting, Creating Variables, and Saving." />
+  <meta name="twitter:image" content="EQM_v1_cover.png" />
+
+<meta name="author" content="Sarah Schwartz &amp; Tyson Barrett" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="scatterplots.html"/>
+<link rel="next" href="way-chi-square-test-goodness-of-fit.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="heading.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Vol. 2: Exploring Data</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#blocked-notes"><i class="fa fa-check"></i>Blocked Notes</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#code-and-output"><i class="fa fa-check"></i>Code and Output</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#the-authors"><i class="fa fa-check"></i>The Authors</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-choose-r"><i class="fa fa-check"></i>Why choose R ?</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#fyi"><i class="fa fa-check"></i>FYI</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="intro-ihnos-experiemnt.html"><a href="intro-ihnos-experiemnt.html"><i class="fa fa-check"></i><b>1</b> Intro: Ihno’s Experiemnt</a><ul>
+<li class="chapter" data-level="1.1" data-path="intro-ihnos-experiemnt.html"><a href="intro-ihnos-experiemnt.html#background-of-data"><i class="fa fa-check"></i><b>1.1</b> Background of Data</a></li>
+<li class="chapter" data-level="1.2" data-path="intro-ihnos-experiemnt.html"><a href="intro-ihnos-experiemnt.html#import-wrangle-the-data"><i class="fa fa-check"></i><b>1.2</b> Import &amp; Wrangle the Data</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="intro-cancer-experiemnt.html"><a href="intro-cancer-experiemnt.html"><i class="fa fa-check"></i><b>2</b> Intro: Cancer Experiemnt</a><ul>
+<li class="chapter" data-level="2.1" data-path="intro-cancer-experiemnt.html"><a href="intro-cancer-experiemnt.html#source-of-data"><i class="fa fa-check"></i><b>2.1</b> Source of Data</a></li>
+<li class="chapter" data-level="2.2" data-path="intro-cancer-experiemnt.html"><a href="intro-cancer-experiemnt.html#description-of-the-study"><i class="fa fa-check"></i><b>2.2</b> Description of the Study</a></li>
+<li class="chapter" data-level="2.3" data-path="intro-cancer-experiemnt.html"><a href="intro-cancer-experiemnt.html#variables"><i class="fa fa-check"></i><b>2.3</b> Variables</a></li>
+<li class="chapter" data-level="2.4" data-path="intro-cancer-experiemnt.html"><a href="intro-cancer-experiemnt.html#import-data"><i class="fa fa-check"></i><b>2.4</b> Import Data</a></li>
+<li class="chapter" data-level="2.5" data-path="intro-cancer-experiemnt.html"><a href="intro-cancer-experiemnt.html#wrangle-data"><i class="fa fa-check"></i><b>2.5</b> Wrangle Data</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="summary-statistics.html"><a href="summary-statistics.html"><i class="fa fa-check"></i><b>3</b> Summary Statistics</a><ul>
+<li class="chapter" data-level="3.1" data-path="summary-statistics.html"><a href="summary-statistics.html#all-variables-in-a-dataset"><i class="fa fa-check"></i><b>3.1</b> All Variables in a Dataset</a></li>
+<li class="chapter" data-level="3.2" data-path="summary-statistics.html"><a href="summary-statistics.html#a-subset-of-varaibles-in-a-datasets"><i class="fa fa-check"></i><b>3.2</b> A Subset of Varaibles in a Datasets</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="frequency-distribution-tables.html"><a href="frequency-distribution-tables.html"><i class="fa fa-check"></i><b>4</b> Frequency Distribution Tables</a><ul>
+<li class="chapter" data-level="4.1" data-path="frequency-distribution-tables.html"><a href="frequency-distribution-tables.html#for-a-single-categorical-variable"><i class="fa fa-check"></i><b>4.1</b> For a Single Categorical Variable</a></li>
+<li class="chapter" data-level="4.2" data-path="frequency-distribution-tables.html"><a href="frequency-distribution-tables.html#for-a-single-continuous-variable"><i class="fa fa-check"></i><b>4.2</b> For a Single Continuous Variable</a></li>
+<li class="chapter" data-level="4.3" data-path="frequency-distribution-tables.html"><a href="frequency-distribution-tables.html#stratify--by--a-categorical-factor"><i class="fa fa-check"></i><b>4.3</b> Stratify -by- a categorical factor</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="simple-and-stratified-descriptive-tables.html"><a href="simple-and-stratified-descriptive-tables.html"><i class="fa fa-check"></i><b>5</b> Simple and Stratified Descriptive Tables</a><ul>
+<li class="chapter" data-level="5.1" data-path="simple-and-stratified-descriptive-tables.html"><a href="simple-and-stratified-descriptive-tables.html#for-a-single-categorical-variable-1"><i class="fa fa-check"></i><b>5.1</b> For a Single Categorical Variable</a></li>
+<li class="chapter" data-level="5.2" data-path="simple-and-stratified-descriptive-tables.html"><a href="simple-and-stratified-descriptive-tables.html#for-a-single-continuous-variable-1"><i class="fa fa-check"></i><b>5.2</b> For a Single Continuous Variable</a></li>
+<li class="chapter" data-level="5.3" data-path="simple-and-stratified-descriptive-tables.html"><a href="simple-and-stratified-descriptive-tables.html#for-a-subset-of-variables"><i class="fa fa-check"></i><b>5.3</b> For a Subset of Variables</a></li>
+<li class="chapter" data-level="5.4" data-path="simple-and-stratified-descriptive-tables.html"><a href="simple-and-stratified-descriptive-tables.html#customize-the-variable-labels"><i class="fa fa-check"></i><b>5.4</b> Customize the Variable Labels</a></li>
+<li class="chapter" data-level="5.5" data-path="simple-and-stratified-descriptive-tables.html"><a href="simple-and-stratified-descriptive-tables.html#stratify--by--a-categorical-factor-1"><i class="fa fa-check"></i><b>5.5</b> Stratify -by- a categorical factor</a></li>
+<li class="chapter" data-level="5.6" data-path="simple-and-stratified-descriptive-tables.html"><a href="simple-and-stratified-descriptive-tables.html#add-a-total-column"><i class="fa fa-check"></i><b>5.6</b> Add a TOTAL Column</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="barplots.html"><a href="barplots.html"><i class="fa fa-check"></i><b>6</b> Barplots</a><ul>
+<li class="chapter" data-level="6.1" data-path="barplots.html"><a href="barplots.html#single-categorical-variable"><i class="fa fa-check"></i><b>6.1</b> Single categorical variable</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="barplots.html"><a href="barplots.html#default-binsbinwidth"><i class="fa fa-check"></i><b>6.1.1</b> Default bins/binwidth</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="histograms.html"><a href="histograms.html"><i class="fa fa-check"></i><b>7</b> Histograms</a><ul>
+<li class="chapter" data-level="7.1" data-path="histograms.html"><a href="histograms.html#single-continuous-variable"><i class="fa fa-check"></i><b>7.1</b> Single continuous variable</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="histograms.html"><a href="histograms.html#default-binsbinwidth-1"><i class="fa fa-check"></i><b>7.1.1</b> Default bins/binwidth</a></li>
+<li class="chapter" data-level="7.1.2" data-path="histograms.html"><a href="histograms.html#specify-number-of-bins"><i class="fa fa-check"></i><b>7.1.2</b> Specify number of bins</a></li>
+<li class="chapter" data-level="7.1.3" data-path="histograms.html"><a href="histograms.html#specify-bin-width"><i class="fa fa-check"></i><b>7.1.3</b> Specify bin width</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="histograms.html"><a href="histograms.html#fill-in-the-color--by--a-factor"><i class="fa fa-check"></i><b>7.2</b> Fill in the color -by- a factor</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="boxplots.html"><a href="boxplots.html"><i class="fa fa-check"></i><b>8</b> Boxplots</a><ul>
+<li class="chapter" data-level="8.1" data-path="boxplots.html"><a href="boxplots.html#single-continuous-variable-1"><i class="fa fa-check"></i><b>8.1</b> Single continuous variable</a></li>
+<li class="chapter" data-level="8.2" data-path="boxplots.html"><a href="boxplots.html#single-box--for--a-subset"><i class="fa fa-check"></i><b>8.2</b> Single Box -for- a Subset</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="boxplots.html"><a href="boxplots.html#one-requirement"><i class="fa fa-check"></i><b>8.2.1</b> One Requirement</a></li>
+<li class="chapter" data-level="8.2.2" data-path="boxplots.html"><a href="boxplots.html#two-requirements"><i class="fa fa-check"></i><b>8.2.2</b> Two Requirements</a></li>
+<li class="chapter" data-level="8.2.3" data-path="boxplots.html"><a href="boxplots.html#a-requirement-specified-with-a-list"><i class="fa fa-check"></i><b>8.2.3</b> A Requirement Specified with a List</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="boxplots.html"><a href="boxplots.html#multiple-boxes--by--a-factor"><i class="fa fa-check"></i><b>8.3</b> Multiple Boxes -by- a Factor</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="boxplots.html"><a href="boxplots.html#use-fill-var_name"><i class="fa fa-check"></i><b>8.3.1</b> Use <code>fill = var_name</code></a></li>
+<li class="chapter" data-level="8.3.2" data-path="boxplots.html"><a href="boxplots.html#use-x-var_name"><i class="fa fa-check"></i><b>8.3.2</b> Use <code>x = var_name</code></a></li>
+<li class="chapter" data-level="8.3.3" data-path="boxplots.html"><a href="boxplots.html#use-facet_grid.-var_name"><i class="fa fa-check"></i><b>8.3.3</b> Use <code>facet_grid(. ~ var_name)</code></a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="boxplots.html"><a href="boxplots.html#multiple-boxes--by--2-factors"><i class="fa fa-check"></i><b>8.4</b> Multiple Boxes -by- 2 Factors</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="boxplots.html"><a href="boxplots.html#use-fill-var_name_1-and-x-var_name_2"><i class="fa fa-check"></i><b>8.4.1</b> Use <code>fill = var_name_1</code> and <code>x = var_name_2</code></a></li>
+<li class="chapter" data-level="8.4.2" data-path="boxplots.html"><a href="boxplots.html#use-x-var_name_1-and-facet_grid.-var_name_2"><i class="fa fa-check"></i><b>8.4.2</b> Use <code>x = var_name_1</code> and <code>facet_grid(. ~ var_name_2)</code></a></li>
+<li class="chapter" data-level="8.4.3" data-path="boxplots.html"><a href="boxplots.html#use-fill-var_name_1-and-facet_grid.-var_name_2"><i class="fa fa-check"></i><b>8.4.3</b> Use <code>fill = var_name_1</code> and <code>facet_grid(. ~ var_name_2)</code></a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="boxplots.html"><a href="boxplots.html#multiple-boxes--for--a-subset-and--by--2-factors"><i class="fa fa-check"></i><b>8.5</b> Multiple Boxes -for- a Subset AND -by- 2 Factors</a></li>
+<li class="chapter" data-level="8.6" data-path="boxplots.html"><a href="boxplots.html#multiple-boxes--for--repeated-measurements"><i class="fa fa-check"></i><b>8.6</b> Multiple Boxes -for- Repeated Measurements</a><ul>
+<li class="chapter" data-level="8.6.1" data-path="boxplots.html"><a href="boxplots.html#multiple-boxes--for--repeated-measurements-and--by--a-factor"><i class="fa fa-check"></i><b>8.6.1</b> Multiple Boxes -for- Repeated Measurements AND -by- a Factor</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="scatterplots.html"><a href="scatterplots.html"><i class="fa fa-check"></i><b>9</b> Scatterplots</a><ul>
+<li class="chapter" data-level="9.1" data-path="scatterplots.html"><a href="scatterplots.html#two-continuous-variables"><i class="fa fa-check"></i><b>9.1</b> Two continuous variables</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="binomial-sign-test.html"><a href="binomial-sign-test.html"><i class="fa fa-check"></i><b>10</b> Binomial Sign Test</a><ul>
+<li class="chapter" data-level="10.1" data-path="binomial-sign-test.html"><a href="binomial-sign-test.html#the-binomial-distribution"><i class="fa fa-check"></i><b>10.1</b> The Binomial Distribution</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="binomial-sign-test.html"><a href="binomial-sign-test.html#effect-of-hypothesised-p-value"><i class="fa fa-check"></i><b>10.1.1</b> Effect of Hypothesised “P” Value</a></li>
+<li class="chapter" data-level="10.1.2" data-path="binomial-sign-test.html"><a href="binomial-sign-test.html#effect-of-sample-size"><i class="fa fa-check"></i><b>10.1.2</b> Effect of Sample Size</a></li>
+<li class="chapter" data-level="10.1.3" data-path="binomial-sign-test.html"><a href="binomial-sign-test.html#probability-of-4-or-more-out-of-5"><i class="fa fa-check"></i><b>10.1.3</b> Probability of 4 <em>(or more)</em> out of 5</a></li>
+<li class="chapter" data-level="10.1.4" data-path="binomial-sign-test.html"><a href="binomial-sign-test.html#probability-of-8-or-more-out-of-10"><i class="fa fa-check"></i><b>10.1.4</b> Probability of 8 <em>(or more)</em> out of 10</a></li>
+<li class="chapter" data-level="10.1.5" data-path="binomial-sign-test.html"><a href="binomial-sign-test.html#probability-of-80-or-more-out-of-100"><i class="fa fa-check"></i><b>10.1.5</b> Probability of 80 <em>(or more)</em> out of 100</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="binomial-sign-test.html"><a href="binomial-sign-test.html#example-fair-coin"><i class="fa fa-check"></i><b>10.2</b> Example: Fair Coin?</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="binomial-sign-test.html"><a href="binomial-sign-test.html#enter-tabulated-data-subtotals"><i class="fa fa-check"></i><b>10.2.1</b> Enter tabulated data (subtotals)</a></li>
+<li class="chapter" data-level="10.2.2" data-path="binomial-sign-test.html"><a href="binomial-sign-test.html#two-sided-test"><i class="fa fa-check"></i><b>10.2.2</b> Two-sided Test</a></li>
+<li class="chapter" data-level="10.2.3" data-path="binomial-sign-test.html"><a href="binomial-sign-test.html#one-sided-test"><i class="fa fa-check"></i><b>10.2.3</b> One-sided Test</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="way-chi-square-test-goodness-of-fit.html"><a href="way-chi-square-test-goodness-of-fit.html"><i class="fa fa-check"></i><b>11</b> 1-way Chi Square Test, “Goodness of Fit”</a><ul>
+<li class="chapter" data-level="11.1" data-path="way-chi-square-test-goodness-of-fit.html"><a href="way-chi-square-test-goodness-of-fit.html#chi-squared-distribution"><i class="fa fa-check"></i><b>11.1</b> Chi Squared Distribution</a></li>
+<li class="chapter" data-level="11.2" data-path="way-chi-square-test-goodness-of-fit.html"><a href="way-chi-square-test-goodness-of-fit.html#chi-squared-test"><i class="fa fa-check"></i><b>11.2</b> Chi Squared Test</a></li>
+<li class="chapter" data-level="11.3" data-path="way-chi-square-test-goodness-of-fit.html"><a href="way-chi-square-test-goodness-of-fit.html#null-hypothesis-equally-likely"><i class="fa fa-check"></i><b>11.3</b> Null Hypothesis: Equally Likely</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="way-chi-square-test-goodness-of-fit.html"><a href="way-chi-square-test-goodness-of-fit.html#ex.-senator-support"><i class="fa fa-check"></i><b>11.3.1</b> Ex. Senator Support</a></li>
+<li class="chapter" data-level="11.3.2" data-path="way-chi-square-test-goodness-of-fit.html"><a href="way-chi-square-test-goodness-of-fit.html#ex.-books"><i class="fa fa-check"></i><b>11.3.2</b> Ex. Books</a></li>
+<li class="chapter" data-level="11.3.3" data-path="way-chi-square-test-goodness-of-fit.html"><a href="way-chi-square-test-goodness-of-fit.html#ex.-m-m-colors"><i class="fa fa-check"></i><b>11.3.3</b> Ex. M &amp; M Colors</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="way-chi-square-test-goodness-of-fit.html"><a href="way-chi-square-test-goodness-of-fit.html#null-hypothesis-a-specific-distribution"><i class="fa fa-check"></i><b>11.4</b> Null Hypothesis: a Specific Distribution</a><ul>
+<li class="chapter" data-level="11.4.1" data-path="way-chi-square-test-goodness-of-fit.html"><a href="way-chi-square-test-goodness-of-fit.html#ex.-m-m-colors-1"><i class="fa fa-check"></i><b>11.4.1</b> Ex. M &amp; M Colors</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="way-chi-square-test-independence.html"><a href="way-chi-square-test-independence.html"><i class="fa fa-check"></i><b>12</b> 2-way Chi Square Test “Independence”</a><ul>
+<li class="chapter" data-level="12.1" data-path="way-chi-square-test-independence.html"><a href="way-chi-square-test-independence.html#example-violent-crime-and-abuse-2x2"><i class="fa fa-check"></i><b>12.1</b> Example: Violent Crime and Abuse (2x2)</a></li>
+<li class="chapter" data-level="12.2" data-path="way-chi-square-test-independence.html"><a href="way-chi-square-test-independence.html#example-schizophrenic-treatment-cohen-textbook"><i class="fa fa-check"></i><b>12.2</b> Example: Schizophrenic Treatment (Cohen textbook)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Encyclopedia of Quantitative Methods in R, vol. 1: Data Wrangling</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="binomial-sign-test" class="section level1">
+<h1><span class="header-section-number">10</span> Binomial Sign Test</h1>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb85-1" title="1"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb85-2" title="2"><span class="kw">library</span>(pander)</a></code></pre></div>
+<div id="the-binomial-distribution" class="section level2">
+<h2><span class="header-section-number">10.1</span> The Binomial Distribution</h2>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb86-1" title="1"><span class="kw">data.frame</span>(<span class="dt">count =</span> <span class="dv">0</span><span class="op">:</span><span class="dv">13</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb86-2" title="2"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">prob =</span> <span class="kw">dbinom</span>(count, <span class="dt">size =</span> <span class="dv">13</span>, <span class="dt">p =</span> <span class="fl">.50</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb86-3" title="3"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> count,</a>
+<a class="sourceLine" id="cb86-4" title="4">             <span class="dt">y =</span> prob)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb86-5" title="5"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb86-6" title="6"><span class="st">  </span><span class="kw">geom_segment</span>(<span class="kw">aes</span>(<span class="dt">xend =</span> count, </a>
+<a class="sourceLine" id="cb86-7" title="7">                   <span class="dt">y =</span> <span class="dv">0</span>, </a>
+<a class="sourceLine" id="cb86-8" title="8">                   <span class="dt">yend =</span> prob),</a>
+<a class="sourceLine" id="cb86-9" title="9">               <span class="dt">size =</span> <span class="fl">.1</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb86-10" title="10"><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb86-11" title="11"><span class="st">  </span><span class="kw">scale_x_continuous</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb86-12" title="12"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Count&quot;</span>,</a>
+<a class="sourceLine" id="cb86-13" title="13">       <span class="dt">y =</span> <span class="st">&quot;Probability&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb86-14" title="14"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>)</a></code></pre></div>
+<p><img src="eBook_install_files/figure-html/unnamed-chunk-73-1.png" width="384" style="display: block; margin: auto;" /></p>
+<div id="effect-of-hypothesised-p-value" class="section level3">
+<h3><span class="header-section-number">10.1.1</span> Effect of Hypothesised “P” Value</h3>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb87-1" title="1">ex_n =<span class="st"> </span><span class="dv">30</span></a>
+<a class="sourceLine" id="cb87-2" title="2"></a>
+<a class="sourceLine" id="cb87-3" title="3"><span class="kw">data.frame</span>(<span class="dt">count =</span> <span class="dv">0</span><span class="op">:</span><span class="dv">35</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb87-4" title="4"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">prob_10 =</span> <span class="kw">dbinom</span>(count, <span class="dt">size =</span> ex_n, <span class="dt">p =</span> <span class="fl">.10</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb87-5" title="5"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">prob_25 =</span> <span class="kw">dbinom</span>(count, <span class="dt">size =</span> ex_n, <span class="dt">p =</span> <span class="fl">.25</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb87-6" title="6"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">prob_50 =</span> <span class="kw">dbinom</span>(count, <span class="dt">size =</span> ex_n, <span class="dt">p =</span> <span class="fl">.50</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb87-7" title="7"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">prob_75 =</span> <span class="kw">dbinom</span>(count, <span class="dt">size =</span> ex_n, <span class="dt">p =</span> <span class="fl">.75</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb87-8" title="8"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">prob_90 =</span> <span class="kw">dbinom</span>(count, <span class="dt">size =</span> ex_n, <span class="dt">p =</span> <span class="fl">.90</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb87-9" title="9"><span class="st">  </span>tidyr<span class="op">::</span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> <span class="kw">contains</span>(<span class="st">&quot;prob&quot;</span>),</a>
+<a class="sourceLine" id="cb87-10" title="10">                      <span class="dt">names_to =</span> <span class="st">&quot;percent&quot;</span>,</a>
+<a class="sourceLine" id="cb87-11" title="11">                      <span class="dt">names_prefix =</span> <span class="st">&quot;prob_&quot;</span>,</a>
+<a class="sourceLine" id="cb87-12" title="12">                      <span class="dt">values_to =</span> <span class="st">&quot;prob&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb87-13" title="13"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">percent =</span> <span class="kw">paste0</span>(<span class="st">&quot;P = .&quot;</span>, percent)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb87-14" title="14"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> count,</a>
+<a class="sourceLine" id="cb87-15" title="15">             <span class="dt">y =</span> prob)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb87-16" title="16"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb87-17" title="17"><span class="st">  </span><span class="kw">geom_segment</span>(<span class="kw">aes</span>(<span class="dt">xend =</span> count, </a>
+<a class="sourceLine" id="cb87-18" title="18">                   <span class="dt">y =</span> <span class="dv">0</span>, </a>
+<a class="sourceLine" id="cb87-19" title="19">                   <span class="dt">yend =</span> prob),</a>
+<a class="sourceLine" id="cb87-20" title="20">               <span class="dt">size =</span> <span class="fl">.1</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb87-21" title="21"><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb87-22" title="22"><span class="st">  </span><span class="kw">scale_x_continuous</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb87-23" title="23"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Count&quot;</span>,</a>
+<a class="sourceLine" id="cb87-24" title="24">       <span class="dt">y =</span> <span class="st">&quot;Probability&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb87-25" title="25"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb87-26" title="26"><span class="st">  </span><span class="kw">facet_grid</span>(<span class="op">~</span><span class="st"> </span>percent)</a></code></pre></div>
+<p><img src="eBook_install_files/figure-html/unnamed-chunk-74-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="effect-of-sample-size" class="section level3">
+<h3><span class="header-section-number">10.1.2</span> Effect of Sample Size</h3>
+</div>
+<div id="probability-of-4-or-more-out-of-5" class="section level3">
+<h3><span class="header-section-number">10.1.3</span> Probability of 4 <em>(or more)</em> out of 5</h3>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb88-1" title="1">ex_n =<span class="st"> </span><span class="dv">5</span></a>
+<a class="sourceLine" id="cb88-2" title="2">ex_x =<span class="st"> </span><span class="dv">4</span></a>
+<a class="sourceLine" id="cb88-3" title="3">ex_p =<span class="st"> </span><span class="fl">.50</span></a>
+<a class="sourceLine" id="cb88-4" title="4"></a>
+<a class="sourceLine" id="cb88-5" title="5"><span class="kw">dbinom</span>(<span class="dt">x    =</span> ex_x, </a>
+<a class="sourceLine" id="cb88-6" title="6">       <span class="dt">size =</span> ex_n, </a>
+<a class="sourceLine" id="cb88-7" title="7">       <span class="dt">prob =</span> ex_p)</a></code></pre></div>
+<pre><code>[1] 0.15625</code></pre>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb90-1" title="1"><span class="kw">data.frame</span>(<span class="dt">count =</span> <span class="dv">0</span><span class="op">:</span>ex_n) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb90-2" title="2"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">prob =</span> <span class="kw">dbinom</span>(count, <span class="dt">size =</span> ex_n, <span class="dt">p =</span> ex_p)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb90-3" title="3"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">mark =</span> <span class="kw">cut</span>(count, </a>
+<a class="sourceLine" id="cb90-4" title="4">                           <span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">0</span>, ex_x <span class="op">-</span><span class="st"> </span><span class="fl">.5</span>, ex_n),</a>
+<a class="sourceLine" id="cb90-5" title="5">                           <span class="dt">include.lowest =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb90-6" title="6"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> count,</a>
+<a class="sourceLine" id="cb90-7" title="7">             <span class="dt">y =</span> prob,</a>
+<a class="sourceLine" id="cb90-8" title="8">             <span class="dt">color =</span> mark)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb90-9" title="9"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb90-10" title="10"><span class="st">  </span><span class="kw">geom_segment</span>(<span class="kw">aes</span>(<span class="dt">xend =</span> count, </a>
+<a class="sourceLine" id="cb90-11" title="11">                   <span class="dt">y =</span> <span class="dv">0</span>, </a>
+<a class="sourceLine" id="cb90-12" title="12">                   <span class="dt">yend =</span> prob),</a>
+<a class="sourceLine" id="cb90-13" title="13">               <span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb90-14" title="14"><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb90-15" title="15"><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="dv">0</span><span class="op">:</span>ex_n) <span class="op">+</span></a>
+<a class="sourceLine" id="cb90-16" title="16"><span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;black&quot;</span>, <span class="st">&quot;red&quot;</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb90-17" title="17"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Count&quot;</span>,</a>
+<a class="sourceLine" id="cb90-18" title="18">       <span class="dt">y =</span> <span class="st">&quot;Probability&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb90-19" title="19"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>)</a></code></pre></div>
+<p><img src="eBook_install_files/figure-html/unnamed-chunk-76-1.png" width="288" style="display: block; margin: auto;" /></p>
+</div>
+<div id="probability-of-8-or-more-out-of-10" class="section level3">
+<h3><span class="header-section-number">10.1.4</span> Probability of 8 <em>(or more)</em> out of 10</h3>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb91-1" title="1">ex_n =<span class="st"> </span><span class="dv">10</span></a>
+<a class="sourceLine" id="cb91-2" title="2">ex_x =<span class="st"> </span><span class="dv">8</span></a>
+<a class="sourceLine" id="cb91-3" title="3">ex_p =<span class="st"> </span><span class="fl">.50</span></a>
+<a class="sourceLine" id="cb91-4" title="4"></a>
+<a class="sourceLine" id="cb91-5" title="5"><span class="kw">dbinom</span>(<span class="dt">x    =</span> ex_x, </a>
+<a class="sourceLine" id="cb91-6" title="6">       <span class="dt">size =</span> ex_n, </a>
+<a class="sourceLine" id="cb91-7" title="7">       <span class="dt">prob =</span> ex_p)</a></code></pre></div>
+<pre><code>[1] 0.04394531</code></pre>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb93-1" title="1"><span class="kw">data.frame</span>(<span class="dt">count =</span> <span class="dv">0</span><span class="op">:</span>ex_n) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb93-2" title="2"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">prob =</span> <span class="kw">dbinom</span>(count, <span class="dt">size =</span> ex_n, <span class="dt">p =</span> ex_p)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb93-3" title="3"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">mark =</span> <span class="kw">cut</span>(count, </a>
+<a class="sourceLine" id="cb93-4" title="4">                           <span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">0</span>, ex_x <span class="fl">-.5</span>, ex_n),</a>
+<a class="sourceLine" id="cb93-5" title="5">                           <span class="dt">include.lowest =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb93-6" title="6"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> count,</a>
+<a class="sourceLine" id="cb93-7" title="7">             <span class="dt">y =</span> prob,</a>
+<a class="sourceLine" id="cb93-8" title="8">             <span class="dt">color =</span> mark)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb93-9" title="9"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb93-10" title="10"><span class="st">  </span><span class="kw">geom_segment</span>(<span class="kw">aes</span>(<span class="dt">xend =</span> count, </a>
+<a class="sourceLine" id="cb93-11" title="11">                   <span class="dt">y =</span> <span class="dv">0</span>, </a>
+<a class="sourceLine" id="cb93-12" title="12">                   <span class="dt">yend =</span> prob),</a>
+<a class="sourceLine" id="cb93-13" title="13">               <span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb93-14" title="14"><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb93-15" title="15"><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="dv">0</span><span class="op">:</span>ex_n) <span class="op">+</span></a>
+<a class="sourceLine" id="cb93-16" title="16"><span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;black&quot;</span>, <span class="st">&quot;red&quot;</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb93-17" title="17"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Count&quot;</span>,</a>
+<a class="sourceLine" id="cb93-18" title="18">       <span class="dt">y =</span> <span class="st">&quot;Probability&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb93-19" title="19"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>)</a></code></pre></div>
+<p><img src="eBook_install_files/figure-html/unnamed-chunk-78-1.png" width="288" style="display: block; margin: auto;" /></p>
+</div>
+<div id="probability-of-80-or-more-out-of-100" class="section level3">
+<h3><span class="header-section-number">10.1.5</span> Probability of 80 <em>(or more)</em> out of 100</h3>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb94-1" title="1">ex_n =<span class="st"> </span><span class="dv">100</span></a>
+<a class="sourceLine" id="cb94-2" title="2">ex_x =<span class="st"> </span><span class="dv">80</span></a>
+<a class="sourceLine" id="cb94-3" title="3">ex_p =<span class="st"> </span><span class="fl">.50</span></a>
+<a class="sourceLine" id="cb94-4" title="4"></a>
+<a class="sourceLine" id="cb94-5" title="5"><span class="kw">dbinom</span>(<span class="dt">x    =</span> ex_x, </a>
+<a class="sourceLine" id="cb94-6" title="6">       <span class="dt">size =</span> ex_n, </a>
+<a class="sourceLine" id="cb94-7" title="7">       <span class="dt">prob =</span> ex_p)</a></code></pre></div>
+<pre><code>[1] 4.228163e-10</code></pre>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb96-1" title="1"><span class="kw">data.frame</span>(<span class="dt">count =</span> <span class="dv">0</span><span class="op">:</span>ex_n) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb96-2" title="2"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">prob =</span> <span class="kw">dbinom</span>(count, <span class="dt">size =</span> ex_n, <span class="dt">p =</span> ex_p)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb96-3" title="3"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">mark =</span> <span class="kw">cut</span>(count, </a>
+<a class="sourceLine" id="cb96-4" title="4">                           <span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">0</span>, ex_x, ex_n),</a>
+<a class="sourceLine" id="cb96-5" title="5">                           <span class="dt">include.lowest =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb96-6" title="6"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> count,</a>
+<a class="sourceLine" id="cb96-7" title="7">             <span class="dt">y =</span> prob,</a>
+<a class="sourceLine" id="cb96-8" title="8">             <span class="dt">color =</span> mark)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb96-9" title="9"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb96-10" title="10"><span class="st">  </span><span class="kw">geom_segment</span>(<span class="kw">aes</span>(<span class="dt">xend =</span> count, </a>
+<a class="sourceLine" id="cb96-11" title="11">                   <span class="dt">y =</span> <span class="dv">0</span>, </a>
+<a class="sourceLine" id="cb96-12" title="12">                   <span class="dt">yend =</span> prob)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb96-13" title="13"><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb96-14" title="14"><span class="st">  </span><span class="kw">scale_x_continuous</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb96-15" title="15"><span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;black&quot;</span>, <span class="st">&quot;red&quot;</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb96-16" title="16"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Count&quot;</span>,</a>
+<a class="sourceLine" id="cb96-17" title="17">       <span class="dt">y =</span> <span class="st">&quot;Probability&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb96-18" title="18"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>)</a></code></pre></div>
+<p><img src="eBook_install_files/figure-html/unnamed-chunk-80-1.png" width="288" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="example-fair-coin" class="section level2">
+<h2><span class="header-section-number">10.2</span> Example: Fair Coin?</h2>
+<p><strong>Experiment</strong>
+A coin is flipped ten times and lands on heads eight times</p>
+<p><strong>Quesiton</strong>
+Is coin biased?</p>
+<p><strong>Hypotheses</strong>
+$$
+H_0: Proportion (X) = .50  \</p>
+<p>H_1: Proportion (X) .50 
+$$</p>
+<div id="enter-tabulated-data-subtotals" class="section level3">
+<h3><span class="header-section-number">10.2.1</span> Enter tabulated data (subtotals)</h3>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb97-1" title="1">tab_coin &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">heads =</span> <span class="dv">8</span>,</a>
+<a class="sourceLine" id="cb97-2" title="2">              <span class="dt">tails =</span> <span class="dv">2</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb97-3" title="3"><span class="st">  </span><span class="kw">as.table</span>()</a>
+<a class="sourceLine" id="cb97-4" title="4"></a>
+<a class="sourceLine" id="cb97-5" title="5">tab_coin <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb97-6" title="6"><span class="st">  </span><span class="kw">addmargins</span>()</a></code></pre></div>
+<pre><code>heads tails   Sum 
+    8     2    10 </code></pre>
+</div>
+<div id="two-sided-test" class="section level3">
+<h3><span class="header-section-number">10.2.2</span> Two-sided Test</h3>
+<p><strong>defaults</strong></p>
+<ul>
+<li>Fifty-fifty change: <span class="math inline">\(H_0: P = .50 \rightarrow\)</span> <code>p = 0.50</code></li>
+<li>Two-sided alternative: <code>alternative = "two.sided"</code></li>
+<li>95% confidence interval: <code>conf.level = 0.95</code></li>
+</ul>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb99-1" title="1">tab_coin <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb99-2" title="2"><span class="st">  </span><span class="kw">binom.test</span>()</a></code></pre></div>
+<pre><code>
+    Exact binomial test
+
+data:  .
+number of successes = 8, number of trials = 10, p-value = 0.1094
+alternative hypothesis: true probability of success is not equal to 0.5
+95 percent confidence interval:
+ 0.4439045 0.9747893
+sample estimates:
+probability of success 
+                   0.8 </code></pre>
+</div>
+<div id="one-sided-test" class="section level3">
+<h3><span class="header-section-number">10.2.3</span> One-sided Test</h3>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb101-1" title="1">tab_coin <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb101-2" title="2"><span class="st">  </span><span class="kw">binom.test</span>(<span class="dt">alternative =</span> <span class="st">&quot;greater&quot;</span>)</a></code></pre></div>
+<pre><code>
+    Exact binomial test
+
+data:  .
+number of successes = 8, number of trials = 10, p-value = 0.05469
+alternative hypothesis: true probability of success is greater than 0.5
+95 percent confidence interval:
+ 0.4930987 1.0000000
+sample estimates:
+probability of success 
+                   0.8 </code></pre>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="scatterplots.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="way-chi-square-test-goodness-of-fit.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

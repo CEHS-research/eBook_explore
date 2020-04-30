@@ -7,6 +7,126 @@ library(effectsize)
 library(pander)
 ```
 
+
+## Chi Squared Distribution
+
+
+```{r, fig.width=4, fig.height=4}
+data.frame(count = 0:50) %>% 
+  dplyr::mutate(prob = dchisq(x = count, df = 1)) %>% 
+  ggplot(aes(x = count,
+             y = prob)) +
+  geom_point() +
+  geom_segment(aes(xend = count, 
+                   y = 0, 
+                   yend = prob),
+               size = .1) +
+  theme_bw() +
+  scale_x_continuous() +
+  labs(x = "Count",
+       y = "Probability") +
+  theme(legend.position = "none")
+```
+
+
+```{r, fig.width=4, fig.height=4}
+data.frame(count = 0:50) %>% 
+  dplyr::mutate(prob = dchisq(x = count, df = 5)) %>% 
+  ggplot(aes(x = count,
+             y = prob)) +
+  geom_point() +
+  geom_segment(aes(xend = count, 
+                   y = 0, 
+                   yend = prob),
+               size = .1) +
+  theme_bw() +
+  scale_x_continuous() +
+  labs(x = "Count",
+       y = "Probability") +
+  theme(legend.position = "none")
+```
+
+
+
+```{r, fig.width=4, fig.height=4}
+data.frame(count = 0:50) %>% 
+  dplyr::mutate(prob = dchisq(x = count, df = 20)) %>% 
+  ggplot(aes(x = count,
+             y = prob)) +
+  geom_point() +
+  geom_segment(aes(xend = count, 
+                   y = 0, 
+                   yend = prob),
+               size = .1) +
+  theme_bw() +
+  scale_x_continuous() +
+  labs(x = "Count",
+       y = "Probability") +
+  theme(legend.position = "none")
+```
+
+
+
+
+```{r, fig.width=4, fig.height=4}
+data.frame(count = 0:150) %>% 
+  dplyr::mutate(prob = dchisq(x = count, df = 100)) %>% 
+  ggplot(aes(x = count,
+             y = prob)) +
+  geom_point() +
+  geom_segment(aes(xend = count, 
+                   y = 0, 
+                   yend = prob),
+               size = .1) +
+  theme_bw() +
+  scale_x_continuous() +
+  labs(x = "Count",
+       y = "Probability") +
+  theme(legend.position = "none")
+```
+
+
+
+```{r}
+data.frame(count = 0:150) %>% 
+  dplyr::mutate(prob_2   = dchisq(x = count, df = 2)) %>% 
+  dplyr::mutate(prob_5   = dchisq(x = count, df = 5)) %>% 
+  dplyr::mutate(prob_20  = dchisq(x = count, df = 20)) %>% 
+  dplyr::mutate(prob_100 = dchisq(x = count, df = 100)) %>% 
+  tidyr::pivot_longer(cols = starts_with("prob"),
+                      names_to = "df",
+                      names_prefix = "prob_",
+                      names_ptypes = list(df = factor()),
+                      values_to = "prob") %>% 
+  dplyr::mutate(mu = df %>% 
+                  as.character() %>% 
+                  as.numeric()) %>% 
+  dplyr::mutate(df = paste0("df = ", df) %>% 
+                  factor(levels = c("df = 2",
+                                    "df = 5",
+                                    "df = 20",
+                                    "df = 100"))) %>% 
+  ggplot(aes(x = count,
+             y = prob)) +
+  geom_point(alpha = .4) +
+  geom_segment(aes(xend = count, 
+                   y = 0, 
+                   yend = prob),
+               alpha = .4) +
+  theme_bw() +
+  scale_x_continuous() +
+  labs(x = "Count",
+       y = "Probability") +
+  theme(legend.position = "none") +
+  facet_wrap(. ~ df, nrow = 2, scales = "free_y") +
+  geom_vline(aes(xintercept = mu),
+             color = "red") 
+```
+
+
+
+## Chi Squared Test
+
 The `chisq.test()` function in the base R `stats` package can be used to perform a **Goodnes-of-Fit** or one-way Chi-Squared test.  This assesses if the observed counts are significantly different from a given profile. The comparison or expected counts may be based on all levels being **equally likely** or **any other specification**.
 
 
@@ -22,6 +142,50 @@ The `chisq.test()` function in the base R `stats` package can be used to perform
 ## Null Hypothesis: Equally Likely
 
 Frequently we will to test if there is any difference between the counts in groups.  This omnibus test compares the counts in each group to the uniform distribution.  This means the expected count in all groups is the same.  The expected counts may be found by dividing the total sample by the number of groups.
+
+
+### Ex. Senator Support
+
+A Senator supports a bill favoring stem cell research. However, she realizes her vote could influence whether or not her constituents endorse her bid for re-election. She decides to vote for the bill only if 50% of her constituents support this type of research. 
+
+In a random survey of 200 constituents, 96 are in favor of stem cell research. Will the senator support the bill?
+
+```{r}
+tab_vote <- c(support = 96,
+              against = 104) %>%
+  as.table()
+
+tab_vote %>% 
+  addmargins()
+```
+
+
+**Defaults**
+
+* Null Hypothesis: "equally likely" `p = c(1/k, 1/k, 1/k, ... 1/k)`
+
+> k =  number of categories
+
+```{r}
+fit_chisq_vote <- tab_vote %>%
+  chisq.test()
+```
+
+
+```{r}
+fit_chisq_vote$observed
+```
+
+
+```{r}
+fit_chisq_vote$expected
+```
+
+
+```{r}
+fit_chisq_vote
+```
+
 
 
 ### Ex. Books
@@ -93,6 +257,25 @@ rbind(Observed = fit_book_chisq_el$observed,
 fit_book_chisq_el
 ```
 
+
+#### Visualize
+
+```{r}
+my_book_counts %>% 
+  data.frame() %>% 
+  ggplot(aes(x = Var1,
+             y = Freq)) +
+  geom_col(alpha = .4,
+           color = "black") +
+  geom_hline(yintercept = 20,
+             color = "red",
+             size = 2) +
+  theme_bw() +
+  labs(x = NULL,
+       y = "Observed Count")
+```
+
+
 #### Write-up
 
 **Methods**
@@ -110,7 +293,7 @@ This one week provides no evidence that books are checked out more or less on an
 #### Enter observed counts
 
 ```{r}
-my_color_counts <- c(brown  = 4,
+tab_color_counts <- c(brown  = 4,
                      yellow = 2,
                      red    = 10,
                      green  = 23,
@@ -118,7 +301,7 @@ my_color_counts <- c(brown  = 4,
                      orange = 12) %>% 
   as.table()
 
-my_color_counts
+tab_color_counts
 ```
 
 #### Perform the test, saving the model fit
@@ -126,7 +309,7 @@ my_color_counts
 > **NOTE:** You do not need to declare any options inside the `chisq.test()` function, as the default is to use equally likely probabilities.
 
 ```{r}
-fit_chisq_el <- my_color_counts %>% 
+fit_chisq_el <- tab_color_counts %>% 
   chisq.test()
 ```
 
@@ -200,7 +383,7 @@ Years ago, the Mars company used to post the 'color breakdown' for each type of 
 To compare observed counts to a specified distribution, you need to add that breakdown of 100% (or probability of 1.0) inside the `chisq.test()`.  Make sure that your probabilities add up to EXACTLY ONE!  If ther are off by even .00001, it will not run and give and error instead.
 
 ```{r}
-fit_chisq_hist <- my_color_counts %>% 
+fit_chisq_hist <- tab_color_counts %>% 
   chisq.test(p = c(.13, .14, .13, .16, .24, .20))
 ```
 
@@ -224,6 +407,10 @@ rbind(Observed = fit_chisq_hist$observed,
 ```{r}
 fit_chisq_hist
 ```
+
+
+
+
 
 #### Write-up
 
