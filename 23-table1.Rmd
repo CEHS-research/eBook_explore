@@ -30,7 +30,6 @@ data_ihno %>%
 ```
 
 
-
 ## For a Subset of Variables
 
 
@@ -50,6 +49,8 @@ cancer_clean %>%
 data_ihno %>% 
   furniture::table1(majorF, reasonF, statquiz)
 ```
+
+
 
 
 ## Customize the Variable Labels
@@ -73,6 +74,18 @@ data_ihno %>%
                     "Mathematics Quiz"     = mathquiz) 
 ```
 
+## Chance rounding 
+
+```{r}
+cancer_clean %>% 
+  furniture::table1(age, weighin, stage, totalcin,
+                    digits = 2)
+```
+```{r}
+cancer_clean %>% 
+  furniture::table1(age, weighin, stage, totalcin,
+                    digits = 3)
+```
 
 ## Stratify -by- a categorical factor
 
@@ -93,7 +106,7 @@ cancer_clean %>%
 
 ```{r}
 data_ihno %>% 
-  dplyr::group_by(genderF) %>% 
+  dplyr::group_by("Gender" = genderF) %>% 
   furniture::table1("College Major" = majorF, 
                     "Reason Enrolled" = reasonF,
                     "Statistics Quiz" = statquiz)
@@ -106,7 +119,7 @@ data_ihno %>%
   dplyr::mutate(phobia_cut3 = cut(phobia, 
                                   breaks = c(0, 2, 4, 10),
                                   include.lowest = TRUE)) %>% 
-  dplyr::group_by(phobia_cut3) %>% 
+  dplyr::group_by("Self-reported Math Phobia Rating" = phobia_cut3) %>% 
   furniture::table1("College Major" = majorF, 
                     "Reason Enrolled" = reasonF,
                     "Statistics Quiz" = statquiz)
@@ -129,10 +142,11 @@ cancer_clean %>%
 
 ```{r}
 data_ihno %>% 
-  dplyr::group_by(genderF) %>% 
+  dplyr::group_by("Gender" = genderF) %>% 
   furniture::table1("College Major" = majorF, 
                     "Reason Enrolled" = reasonF,
                     "Statistics Quiz" = statquiz,
-                    total = TRUE)
+                    total = TRUE,
+                    digits = 2)
 ```
 

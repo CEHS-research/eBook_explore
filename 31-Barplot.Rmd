@@ -15,6 +15,13 @@ library(tidyverse)       # super helpful everything, including ggplot
 
 ### Default bins/binwidth
 
+
+```{r}
+data_ihno %>% 
+  ggplot(aes(major)) +
+  geom_bar()
+```
+
 ```{r}
 data_ihno %>% 
   ggplot(aes(majorF)) +

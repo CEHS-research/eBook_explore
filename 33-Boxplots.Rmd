@@ -186,9 +186,13 @@ This is done with with the `tidyr::gather(key = "new_time_var", value = "new_val
 
 ```{r}
 cancer_clean %>%
-  tidyr::gather(key = "time", 
-                value = "value", 
-                totalcin, totalcw2, totalcw4, totalcw6) %>% 
+  tidyr::pivot_longer(cols = c(totalcin, 
+                               totalcw2, 
+                               totalcw4, 
+                               totalcw6),
+                      names = "week",
+                      names_pattern = "totalc(.)",
+                      value = "totalc") %>% 
   dplyr::arrange(id, time) %>% 
   dplyr::select(id, time, value)
 ```

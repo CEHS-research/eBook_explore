@@ -48,6 +48,13 @@ cancer_clean %>%
   psych::describe()
 ```
 
+## Turn off reporting Skewness adn Kurtosis
+
+```{r}
+cancer_clean %>% 
+  dplyr::select(age, weighin, totalcin, totalcw2, totalcw4, totalcw6) %>%
+  psych::describe(skew = FALSE)
+```
 
 
 
